@@ -1,7 +1,9 @@
 <template>
   <aside :class="`${is_expanded && 'is-expanded'}`">
     <div class="logo">
-        <img src="../assets/github.png" alt="Vue">
+        <a href="/">
+            <img class="pic-logo" src="../assets/github.png" alt="Vue">
+        </a>
     </div>
 
     <div class="menu-toggle-wrap">
@@ -15,12 +17,20 @@
     <h3>Menu</h3>
     <div class="menu">
         <router-link class="button" to="/">
-            <span class="material-icons">home</span>
-            <span class="text">Home</span>
-        </router-link>
-        <router-link class="button" to="/about">
             <span class="material-icons">person</span>
-            <span class="text">About</span>
+            <span class="text">User Page</span>
+        </router-link>
+        <router-link class="button" to="/post">
+            <span class="material-icons">post_add</span>
+            <span class="text">Post</span>
+        </router-link>
+        <router-link class="button" to="/comment">
+            <span class="material-icons">forum</span>
+            <span class="text">Comment</span>
+        </router-link>
+        <router-link class="button" to="/dailyquest">
+            <span class="material-icons">request_page</span>
+            <span class="text">Daily Quest</span>
         </router-link>
     </div>
 
@@ -129,6 +139,7 @@ const is_expanded = ref(localStorage.getItem("is_expanded") === "true")
                     color: var(--light);
                     transition: 0.2s ease-out;
                 }
+
 
                 &:hover, ~&.router-link-exact-active{
                     background-color: var(--dark-alt);
