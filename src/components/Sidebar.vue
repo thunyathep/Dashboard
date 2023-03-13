@@ -32,6 +32,14 @@
             <span class="material-icons">request_page</span>
             <span class="text">Daily Quest</span>
         </router-link>
+        <router-link class="button" to="/SignIn">
+            <span class="material-icons">request_page</span>
+            <span class="text">SignIn</span>
+        </router-link>
+        <router-link class="button" to="/SignUp">
+            <span class="material-icons">request_page</span>
+            <span class="text">SignUp</span>
+        </router-link>
     </div>
 
     <div class="flex"></div>

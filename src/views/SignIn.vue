@@ -51,7 +51,7 @@ import{
     getAuth,
     createUserWithEmailAndPassword,
     onAuthStateChanged,
-    updateProfile
+    updateProfile,
 }from 'firebase/auth';
 export default {
     data() {
