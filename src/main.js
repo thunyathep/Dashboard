@@ -3,7 +3,7 @@ import App from './App.vue'
 import './Firebase.js'
 import router from './router'
 import BootstrapVue3 from 'bootstrap-vue-3'
-
+import { Bar } from 'vue-chartjs'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue-3/dist/bootstrap-vue-3.css'
 
