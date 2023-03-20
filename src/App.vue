@@ -9,11 +9,13 @@ onMounted(()=>{
   store.init()
 })
 
+
+
 </script>
 
 <template>
   <div class="app">
-    <Sidebar class="sidebar" />
+    <Sidebar v-if="store.isLogin"  class="sidebar" />
     <router-view></router-view>
   </div>
 </template>

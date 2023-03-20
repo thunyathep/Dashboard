@@ -4,16 +4,23 @@ import Post from '../views/Post.vue'
 import Comments from '../views/comment.vue'
 import Quest from '../views/Quest.vue'
 import SignIn from '../views/SignIn.vue'
+import Setting from '../views/Setting.vue'
 import SideBar from '../components/SideBar.vue'
 import { useAuthStore } from '../store/useAuthStore'
+// import { onAuthStateChanged } from "firebase/auth";
+// import { auth } from '../config.js'
 
-const requireAuth = (to, from, next) => {
-    let store = useAuthStore()
-    if (!store.user) {
-        next({ name: 'signIn' })
-    } else {
-        next()
-    }
+
+const requireAuth =  async (to, from, next) => {
+    const store = useAuthStore();
+   if(store.isLogin){
+    console.log(store.isLogin)
+    next()
+   }else{
+    console.log(store.isLogin)
+    next({ name: 'signIn' })
+   }
+
 }
 
 const router = createRouter({
@@ -23,10 +30,10 @@ const router = createRouter({
             path: '/signIn',
             name: 'signIn',
             component: SignIn,
-            beforeEnter: requireAuth
+
         },
         {
-            path: '/',
+            path: '/user',
             name: 'user',
             component: User,
             beforeEnter: requireAuth
@@ -51,7 +58,12 @@ const router = createRouter({
             name: 'dailyquest',
             component: Quest,
             beforeEnter: requireAuth
-
+        },
+        {
+            path: '/setting',
+            name: 'setting',
+            component: Setting,
+            beforeEnter: requireAuth
         }
     ]
 })

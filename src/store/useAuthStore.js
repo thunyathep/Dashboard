@@ -14,22 +14,19 @@ export const useAuthStore = defineStore("userStore", () => {
     })
 
     const user = ref({})
-
-    const signIn = async (email, password) => {
-        try {
-            const user = await signInWithEmailAndPassword(auth, email, password)
-        } catch (error) {
-            console.log(error)
-        }
-    }
+    const isLogin = ref(false)
 
     const init = async ()=>{
         try {
-            const user = await onAuthStateChanged(auth, (user)=>{
-                if(user == null){
-                    router.replace({name: 'signIn'})
+            await onAuthStateChanged(auth,  (user)=>{
+                if(user){
+                    console.log(user)
+                    isLogin.value = true
+                    router.replace({name: 'user'})
                 }else{
-                    router.replace({name: 'sidebar'})
+                    console.log(user)
+                    isLogin.value = false
+                    router.replace({name: 'signIn'})
                 }
             })
         } catch (error) {
@@ -38,5 +35,28 @@ export const useAuthStore = defineStore("userStore", () => {
         }
     }
 
-    return { signIn, init, user, userLogin }
+    const signIn = async (email, password) => {
+        try {
+            const res = await signInWithEmailAndPassword(auth, email, password)
+            if(res){
+                router.replace({name: 'user'})
+                isLogin.value = true
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const signOutFirbase = async () => {
+        try {
+            await signOut(auth)
+            console.log("sigOut success")
+            isLogin.value = false
+            router.replace({name: 'signIn'})
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    
+    return { signIn, init, user, userLogin, signOutFirbase ,isLogin}
 })
