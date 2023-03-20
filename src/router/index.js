@@ -7,21 +7,22 @@ import SignIn from '../views/SignIn.vue'
 import Setting from '../views/Setting.vue'
 import SideBar from '../components/SideBar.vue'
 import { useAuthStore } from '../store/useAuthStore'
-// import { onAuthStateChanged } from "firebase/auth";
-// import { auth } from '../config.js'
 
+const ifNotAuthenticated = (to, from, next) => {
+    if (!store.state.isUserLoggedIn) {
+        next();
+        return;
+    }
+    next("/");
+};
 
-const requireAuth =  async (to, from, next) => {
-    const store = useAuthStore();
-   if(store.isLogin){
-    console.log(store.isLogin)
-    next()
-   }else{
-    console.log(store.isLogin)
-    next({ name: 'signIn' })
-   }
-
-}
+const ifAuthenticated = (to, from, next) => {
+    if (store.state.isUserLoggedIn) {
+        next();
+        return;
+    }
+    next("/signIn");
+};
 
 const router = createRouter({
     history: createWebHistory(),
@@ -36,34 +37,31 @@ const router = createRouter({
             path: '/user',
             name: 'user',
             component: User,
-            beforeEnter: requireAuth
 
         },
         {
             path: '/post',
             name: 'post',
             component: Post,
-            beforeEnter: requireAuth
 
         },
         {
             path: '/comment',
             name: 'comment',
             component: Comments,
-            beforeEnter: requireAuth
 
         },
         {
             path: '/dailyquest',
             name: 'dailyquest',
             component: Quest,
-            beforeEnter: requireAuth
+
         },
         {
             path: '/setting',
             name: 'setting',
             component: Setting,
-            beforeEnter: requireAuth
+
         }
     ]
 })
