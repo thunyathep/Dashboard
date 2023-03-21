@@ -8,12 +8,6 @@ import { async } from "@firebase/util";
 
 export const useAuthStore = defineStore("userStore", () => {
 
-    const userLogin = ref({
-        email: "",
-        password: "",
-    })
-
-    const user = ref({})
     const isLogin = ref(false)
 
     const init = async ()=>{
@@ -35,7 +29,7 @@ export const useAuthStore = defineStore("userStore", () => {
         }
     }
 
-    const signIn = async (email, password) => {
+    const signInFirebase = async (email, password) => {
         try {
             const res = await signInWithEmailAndPassword(auth, email, password)
             if(res){
@@ -58,5 +52,5 @@ export const useAuthStore = defineStore("userStore", () => {
         }
     }
     
-    return { signIn, init, user, userLogin, signOutFirbase ,isLogin}
+    return { init, signInFirebase,  signOutFirbase ,isLogin}
 })

@@ -5,24 +5,6 @@ import Comments from '../views/comment.vue'
 import Quest from '../views/Quest.vue'
 import SignIn from '../views/SignIn.vue'
 import Setting from '../views/Setting.vue'
-import SideBar from '../components/SideBar.vue'
-import { useAuthStore } from '../store/useAuthStore'
-
-const ifNotAuthenticated = (to, from, next) => {
-    if (!store.state.isUserLoggedIn) {
-        next();
-        return;
-    }
-    next("/");
-};
-
-const ifAuthenticated = (to, from, next) => {
-    if (store.state.isUserLoggedIn) {
-        next();
-        return;
-    }
-    next("/signIn");
-};
 
 const router = createRouter({
     history: createWebHistory(),

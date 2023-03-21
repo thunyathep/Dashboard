@@ -7,8 +7,6 @@
                 Logout
             </button>
         </div>
-        <!-- Button trigger modal -->
-
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -44,14 +42,12 @@ const handlerSignOut = async () => {
     background-color: rgb(221, 83, 83);
     width: 5rem;
     border-radius: 5px;
-    // box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
     color: #ffff;
 }
 .btn-cancle {
     background-color: rgb(214, 214, 214);
     width: 5rem;
     border-radius: 5px;
-    // box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
     color: #ffff;
 
 }
