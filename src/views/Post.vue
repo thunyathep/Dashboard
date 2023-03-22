@@ -2,161 +2,175 @@
   <main class="post-page">
     <h1>Post</h1>
     <p>This is the post page</p>
-    <row>
-      <button
-        class="btn btn-primary"
-        data-bs-target="#collapseTarget1"
-        data-bs-toggle="collapse"
-      >
-        ผลรวมของการโพสหต์ทั้งหมด
-      </button>
-      &nbsp;&nbsp;&nbsp;
-      <button
-        class="btn btn-primary mr-1"
-        data-bs-target="#collapseTarget2"
-        data-bs-toggle="collapse"
-      >
-        ปัญหาด้านความการเรียน
-      </button>
-      &nbsp;&nbsp;&nbsp;
-      <button
-        class="btn btn-primary mr-1"
-        data-bs-target="#collapseTarget2"
-        data-bs-toggle="collapse"
-      >
-        ปัญหาด้านครอบครัว
-      </button>
-      &nbsp;&nbsp;&nbsp;
-      <button
-        class="btn btn-primary mr-1"
-        data-bs-target="#collapseTarget2"
-        data-bs-toggle="collapse"
-      >
-        ปัญหาด้านความรัก
-      </button>
-      &nbsp;&nbsp;&nbsp;
-    </row>
-    <br />
-    &nbsp;&nbsp;&nbsp;
-    <row>
-      <div>
-        <b-card no-body>
-          <b-tabs card>
-            <b-tab no-body title="ภาพรวม">
-              <b-card-img
-                bottom
-                src="https://picsum.photos/600/200/?image=21"
-                alt="Image 21"
-              ></b-card-img>
-              <b-card-footer>Picture 1 footer</b-card-footer>
-            </b-tab>
-
-            <b-tab no-body title="ปัญหาความรัก">
-              <b-card-img
-                bottom
-                src="https://picsum.photos/600/200/?image=25"
-                alt="Image 25"
-              ></b-card-img>
-              <b-card-footer>Picture 2 footer</b-card-footer>
-            </b-tab>
-
-            <b-tab no-body title="ปัญหาสุขภาพ">
-              <b-card-img
-                bottom
-                src="https://picsum.photos/600/200/?image=26"
-                alt="Image 26"
-              ></b-card-img>
-              <b-card-footer>Picture 3 footer</b-card-footer>
-            </b-tab>
-
-            <b-tab title="ปัญหาครอบครัว">
-              <b-card-title
-                >This tab does not have the <code>no-body</code> prop
-                set</b-card-title
-              >
-              <b-card-text>
-                Quis magna Lorem anim amet ipsum do mollit sit cillum voluptate
-                ex nulla tempor. Laborum consequat non elit enim exercitation
-                cillum aliqua consequat id aliqua. Esse ex consectetur mollit
-                voluptate est in duis laboris ad sit ipsum anim Lorem.
-                Incididunt veniam velit elit elit veniam Lorem aliqua quis
-                ullamco deserunt sit enim elit aliqua esse irure.
-              </b-card-text>
-            </b-tab>
-          </b-tabs>
-        </b-card>
+    <div class="contrainer>">
+      <div class="row">
+        <div class="shadow-sm p-3 mb-5 bg-white rounded">
+          <button button type="button" class="btn btn-outline-primary">
+            ผลรวมของการโพสหต์ทั้งหมด
+          </button>
+          &nbsp;&nbsp;&nbsp;
+          <button button type="button" class="btn btn-outline-primary">
+            ปัญหาด้านความการเรียน
+          </button>
+          &nbsp;&nbsp;&nbsp;
+          <button button type="button" class="btn btn-outline-primary">
+            ปัญหาด้านครอบครัว
+          </button>
+          &nbsp;&nbsp;&nbsp;
+          <button button type="button" class="btn btn-outline-primary">
+            ปัญหาด้านความรัก
+          </button>
+        </div>
       </div>
-    </row>
-    &nbsp;&nbsp;&nbsp;
-    <row>
-      <div>
-        <b-table striped hover :items="items" :fields="fields"></b-table>
+    </div>
+    <!-- <div class="contrainer"> -->
+      <div class="row">
+        <div class="col-sm-5 my-3 pt-3 test-1">
+          <div class="card-body">
+            <h5 class="card-title">Bar Chart</h5>
+            <Bar id="my-chart-id" :options="chartOptions" :data="chartData" />
+          </div>
+        </div>
+        <div class="col-sm-5 my-3 pt-3 test-2">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td colspan="2">Larry the Bird</td>
+                <td>@twitter</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-sm-3 my-3 pt-3 test-3">
+          <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">หมีขั้วโลกเหนือ</h5>
+                <small>3 days ago</small>
+              </div>
+              <!-- <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p> -->
+              <small>สู้ๆ นะ เดี๋ยววันพรุ่งนี้ก็จะสดใสเอง</small>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">หมีขั้วโลกเหนือ</h5>
+                <small class="text-muted">3 days ago</small>
+              </div>
+              <!-- <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p> -->
+              <small class="text-muted">สู้ๆ นะ เดี๋ยววันพรุ่งนี้ก็จะสดใสเอง</small>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-3 my-3 pt-3 test-3">
+          <div>
+            <pie-chart>Pie Chart</pie-chart>
+            <pie-chart>Pie Chart</pie-chart>
+            
+          </div>
+        </div>
+        <div class="col-sm-3 my-3 pt-3 test-3">
+          <div>
+            <pie-chart>Pie Chart</pie-chart>
+            <pie-chart>Pie Chart</pie-chart>
+          </div>
+        </div>
       </div>
-    </row>
-    &nbsp;&nbsp;&nbsp;
-    <row>
-      <div>
-        <b-button @click="toggleBusy">Toggle Busy State</b-button>
-        <b-table :items="items" :busy="isBusy" class="mt-3" outlined>
-          <template #table-busy>
-            <div class="text-center text-danger my-2">
-              <b-spinner class="align-middle"></b-spinner>
-              <strong>Loading...</strong>
-            </div>
-          </template>
-        </b-table>
-      </div>
-    </row>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+          <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1">Previous</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+          </li>
+        </ul>
+      </nav>
+    <!-- </div> -->
   </main>
 </template>
 
-<script>
+<script type="text/javascript">
 //import * as _ from "../Post/AllPost.vue";
+
+import { Bar } from "vue-chartjs";
+import {
+  Chart as ChartJS,
+  Title,
+  Tooltip,
+  Legend,
+  BarElement,
+  CategoryScale,
+  LinearScale,
+} from "chart.js";
+
+ChartJS.register(
+  Title,
+  Tooltip,
+  Legend,
+  BarElement,
+  CategoryScale,
+  LinearScale
+);
+
 export default {
+  components: { Bar },
   data() {
     return {
-      // Note 'isActive' is left out and will not appear in the rendered table
-      fields: [
-        {
-          key: "last_name",
-          sortable: true,
-        },
-        {
-          key: "first_name",
-          sortable: false,
-        },
-        {
-          key: "age",
-          label: "Person age",
-          sortable: true,
-          // Variant applies to the whole column, including the header and footer
-          variant: "danger",
-        },
-      ],
-      items: [
-        {
-          isActive: true,
-          age: 40,
-          first_name: "Dickerson",
-          last_name: "Macdonald",
-        },
-        { isActive: false, age: 21, first_name: "Larsen", last_name: "Shaw" },
-        { isActive: false, age: 89, first_name: "Geneva", last_name: "Wilson" },
-        { isActive: true, age: 38, first_name: "Jami", last_name: "Carney" },
-      ],
-      isBusy: false,
-      items: [
-        { first_name: "Dickerson", last_name: "MacDonald", age: 40 },
-        { first_name: "Larsen", last_name: "Shaw", age: 21 },
-        { first_name: "Geneva", last_name: "Wilson", age: 89 },
-        { first_name: "Jami", last_name: "Carney", age: 38 },
-      ],
+      chartData: {
+        labels: ["January", "February", "March"],
+        datasets: [{ data: [40, 20, 12] }],
+      },
+      chartOptions: {
+        responsive: true,
+      },
     };
-  },
-  methods: {
-    toggleBusy() {
-      this.isBusy = !this.isBusy;
-    },
   },
 };
 </script>
+
+<style>
+.test-1 {
+  background-color: #f1f1f1;
+  border: 1px solid #d3d3d3;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.test-2 {
+  background-color: #f1f1f1;
+  border: 1px solid #d3d3d3;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.test-3 {
+  background-color: #f1f1f1;
+  border: 1px solid #fffcfc;
+  border-radius: 5px;
+  padding: 20px;
+}
+</style>
