@@ -1,119 +1,80 @@
 <template>
-    <main class="dailyquest-page">
-        <h1>Daily Quest</h1>
-        <p>This is the daily quest</p>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-5 my-3 p-4 test-1 ">
-                    <h4>show status 1</h4>
-                </div>
-                <div class="col-1"></div>
-                <div class="col-sm-6 my-3 p-4  test-2">
-                    <h4>show status 1</h4>
-                </div>
-                <div class="col-sm-12 my-3 p-4  test-3">
-                    <h4>Quest infomation</h4>
-                    <table>
-  <tr>
-    <th>Company</th>
-    <th>Contact</th>
-    <th>Country</th>
-  </tr>
-  <tr>
-    <td>Alfreds Futterkiste</td>
-    <td>Maria Anders</td>
-    <td>Germany</td>
-  </tr>
-  <tr>
-    <td>Centro comercial Moctezuma</td>
-    <td>Francisco Chang</td>
-    <td>Mexico</td>
-  </tr>
-  <tr>
-    <td>Ernst Handel</td>
-    <td>Roland Mendel</td>
-    <td>Austria</td>
-  </tr>
-  <tr>
-    <td>Island Trading</td>
-    <td>Helen Bennett</td>
-    <td>UK</td>
-  </tr>
-  <tr>
-    <td>Laughing Bacchus Winecellars</td>
-    <td>Yoshi Tannamuri</td>
-    <td>Canada</td>
-  </tr>
-  <tr>
-    <td>Magazzini Alimentari Riuniti</td>
-    <td>Giovanni Rovelli</td>
-    <td>Italy</td>
-  </tr>
-</table>
-                    
-                </div>
-            </div>
+  <main class="dailyquest-page">
+    <h1>Daily Quest</h1>
+    <p>This is the daily quest</p>
+    <div class="container-fluid">
+      <div class="row">
+        <button class="col-5 col-md-1 my-3 p-2 test-1 mx-3 test-stress ">
+          test-stress
+        </button>
+        <button class="col-5  col-md-1 my-3 p-2 test-2 mx-3 test-consult ">
+          test-consult
+        </button>
+        <div class="col-12 my-3 p-md-5  table-data ">
+          <div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col" class="col-1">id</th>
+                  <th scope="col" class="col-4">question</th>
+                  <th scope="col" class="col-2">weigth</th>
+                  <th scope="col" class="col-4"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="(item, index) in store.testStress" class="m-2">
+                  <th scope="row" >{{item.id}}</th>
+                  <th scope="row" >{{ item.name }}</th>
+                  <th scope="row" >2</th>
+                  <th scope="row" >
+                      <button class="btn-test mx-3 px-3">Edit</button>
+                      <button class="btn-test mx-3 px-3">Add</button>
+                      <button class="btn-test mx-3 px-3">delete</button>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
-    </main>
+      </div>
+    </div>
+  </main>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
+import { useTest } from '../store/useTest'
 
 const count = ref(0)
+const store = useTest();
+const items = ref([{ message: 'Foo' }, { message: 'Bar' }])
 
-function increment(){
-    count.value++
-}
+onMounted(()=>{
+  store.fetchUsers();
+})
 
 </script>
 
 <style lang="scss">
-
-.button2{
-
-    background-color: rgb(231, 231, 231);
-    width: 10rem;
-    border-radius: 5px;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-}
-
-.test{
-    color: aqua;
-}
-
-.test-1{
-    background-color: rgba(255, 255, 255, 0.161);
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    height: 30vh;
+.test-consult {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  background-color: #8FB2AC;
 
 }
-.test-2{
-    background-color: rgba(255, 255, 255, 0.161);
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    height: 30vh;
-}
-.test-3{
-    background-color: rgba(255, 255, 255, 0.161);
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    height: 50vh;
+
+.test-stress {
+  border: none;
+  background-color: #CFE5E1;
+  color: white;
+
 }
 
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
+.table-data{
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
 }
+.btn-test{
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
 }
-
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
-
-
 </style>
