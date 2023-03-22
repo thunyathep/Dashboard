@@ -16,7 +16,7 @@
 
     <h3>Menu</h3>
     <div class="menu">
-        <router-link class="button" to="/">
+        <router-link class="button" to="/user">
             <span class="material-icons">person</span>
             <span class="text">User Page</span>
         </router-link>
