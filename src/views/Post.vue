@@ -1,40 +1,228 @@
 <template>
-  <div class="sign-up">
-      <div class="bg-white p-5 w-75 d-flex justify-content-center align-items-center shadow-lg s" style="height: 600px; width: 700px;">
-              <div class="d-flex justify-content-center text-center shadow-lg w-100 h-100">
-                  <div class="bg-success w-50 text-white pt-5">
-                      <h1>Welcome</h1>
-                      <h1>Back!</h1>
-                      <p>To keep connected with please login</p>
-                      <p>with your personnal info</p>
-                      <button class="rounded p-2 bg-transparent border border-white text-white">SIGN IN</button>
-                  </div>
-                  <div class="bg-white w-100 p-3 mt-5">
-                      <h1>Create Account</h1>
-                      <p>Enter your personal details and start</p>
-                      <p>journey with us</p>
-                      <form class="d-flex flex-column ">
-                          <!-- <input  type="text" placeholder="Name"> -->
-                          <input class="mt-5" type="email" placeholder="Email">
-                          <input class="mt-5" type="password" placeholder="Password">
-                      </form>
-                      <button class="mt-4 p-2 rounded border border-success text-white bg-success">SIGN UP</button>
-                  </div>
+  <main class="post-page">
+    <div class="contrainer>">
+      <div class="row">
+        <div class="shadow-sm p-3 mb-5 bg-white rounded">
+          <button button type="button" class="btn btn-outline-primary">
+            ผลรวมของการโพสหต์ทั้งหมด
+          </button>
+          &nbsp;&nbsp;&nbsp;
+          <button button type="button" class="btn btn-outline-primary">
+            ปัญหาด้านความการเรียน
+          </button>
+          &nbsp;&nbsp;&nbsp;
+          <button button type="button" class="btn btn-outline-primary">
+            ปัญหาด้านครอบครัว
+          </button>
+          &nbsp;&nbsp;&nbsp;
+          <button button type="button" class="btn btn-outline-primary">
+            ปัญหาด้านความรัก
+          </button>
+          <div class="row">
+            <div class="col-sm-6 my-3 pt-3 test-1">
+              <div class="card-body">
+                <h5 class="card-title">Bar Chart</h5>
+                <Bar
+                  id="my-chart-id"
+                  :options="chartOptions"
+                  :data="chartData"
+                />
               </div>
+            </div>
+            <div class="col-sm-6 my-3 pt-3 test-2">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-sm-4 pt-3 test-3">
+              <div class="list-group">
+                <a
+                  href="#"
+                  class="list-group-item list-group-item-action flex-column align-items-start active"
+                >
+                  <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">หมีขั้วโลกเหนือ</h5>
+                    <small>3 days ago</small>
+                  </div>
+
+                  <small>สู้ๆ นะ เดี๋ยววันพรุ่งนี้ก็จะสดใสเอง</small>
+                </a>
+                <a
+                  href="#"
+                  class="list-group-item list-group-item-action flex-column align-items-start"
+                >
+                  <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">หมีขั้วโลกเหนือ</h5>
+                    <small class="text-muted">3 days ago</small>
+                  </div>
+
+                  <small class="text-muted"
+                    >สู้ๆ นะ เดี๋ยววันพรุ่งนี้ก็จะสดใสเอง</small
+                  >
+                </a>
+                <a
+                  href="#"
+                  class="list-group-item list-group-item-action flex-column align-items-start"
+                >
+                  <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1"> ขก แล้ว</h5>
+                    <small class="text-muted">3 days ago</small>
+                  </div>
+                  <small class="text-muted"
+                    >สู้ๆ นะ เดี๋ยววันพรุ่งนี้ก็จะสดใสเอง</small
+                  >
+                </a>
+                <a
+                  href="#"
+                  class="list-group-item list-group-item-action flex-column align-items-start"
+                >
+                  <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">หมีขั้วโลกเหนือ</h5>
+                    <small class="text-muted">3 days ago</small>
+                  </div>
+
+                  <small class="text-muted"
+                    >สู้ๆ นะ เดี๋ยววันพรุ่งนี้ก็จะสดใสเอง</small
+                  >
+                </a>
+                <a
+                  href="#"
+                  class="list-group-item list-group-item-action flex-column align-items-start"
+                >
+                  <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">หมีขั้วโลกเหนือ</h5>
+                    <small class="text-muted">3 days ago</small>
+                  </div>
+
+                  <small class="text-muted"
+                    >สู้ๆ นะ เดี๋ยววันพรุ่งนี้ก็จะสดใสเอง</small
+                  >
+                </a>
+              </div>
+            </div>
+            <div class="col-sm-4 pt-3 test-3">
+              <div>
+                <a
+                  href="#"
+                  class="list-group-item list-group-item-action flex-column align-items-start"
+                >
+                  <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">หมีขั้วโลกเหนือ</h5>
+                    <small class="text-muted">3 days ago</small>
+                  </div>
+
+                  <small class="text-muted"
+                    >สู้ๆ นะ เดี๋ยววันพรุ่งนี้ก็จะสดใสเอง</small
+                  >
+                </a>
+              </div>
+            </div>
+            <div class="col-sm-4 pt-3 test-3">
+              <div>
+                <pie-chart>Pie Chart</pie-chart>
+                <pie-chart>Pie Chart</pie-chart>
+              </div>
+            </div>
+          </div>
+          <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+              <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1">Previous</a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
       </div>
-  </div>
+    </div>
+  </main>
 </template>
 
-<style>
-.sign-up {
-  background-image: url('https://images.unsplash.com/photo-1679231926688-ef9cdab5ed2f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1391&q=80');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+<script type="text/javascript">
+// import { PieChart } from "vue-chartjs";
 
+import { Bar } from "vue-chartjs";
+import {
+  Chart as ChartJS,
+  Title,
+  Tooltip,
+  Legend,
+  BarElement,
+  CategoryScale,
+  LinearScale,
+} from "chart.js";
+ChartJS.register(
+  Title,
+  Tooltip,
+  Legend,
+  BarElement,
+  CategoryScale,
+  LinearScale
+);
+export default {
+  components: { Bar },
+  data() {
+    return {
+      chartData: {
+        labels: ["January", "February", "March", "April", "May", "June", "July"],
+        datasets: [{ data: [40, 20, 12] }],
+      },
+      chartOptions: {
+        responsive: true,
+      },
+    };
+  },
+};
+</script>
+
+<style>
+.test-1 {
+  background-color: #f1f1f1;
+  border: 1px solid #d3d3d3;
+  border-radius: 5px;
+  padding: 20px;
+}
+.test-2 {
+  background-color: #f1f1f1;
+  border: 1px solid #d3d3d3;
+  border-radius: 5px;
+  padding: 20px;
+}
+.test-3 {
+  background-color: #f1f1f1;
+  border: 1px solid #fffcfc;
+  border-radius: 5px;
+  padding: 20px;
+}
 </style>
