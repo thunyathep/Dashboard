@@ -32,6 +32,10 @@
             <span class="material-icons">request_page</span>
             <span class="text">Daily Quest</span>
         </router-link>
+        <router-link class="button" to="/report">
+            <span class="material-icons">report_page</span>
+            <span class="text">Report</span>
+        </router-link>
     </div>
 
     <div class="flex"></div>
