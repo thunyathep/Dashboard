@@ -91,7 +91,7 @@
                   class="list-group-item list-group-item-action flex-column align-items-start"
                 >
                   <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1"> ขก แล้ว</h5>
+                    <h5 class="mb-1">ขก แล้ว</h5>
                     <small class="text-muted">3 days ago</small>
                   </div>
                   <small class="text-muted"
@@ -172,7 +172,6 @@
 <script type="text/javascript">
 // import { PieChart } from "vue-chartjs";
 
-import { Bar } from "vue-chartjs";
 import {
   Chart as ChartJS,
   Title,
@@ -190,17 +189,27 @@ ChartJS.register(
   CategoryScale,
   LinearScale
 );
+
+import { Bar } from "vue-chartjs";
+
+//import Bar from "@/components/Bar.vue";
+import { reactive } from "vue";
+
 export default {
   components: { Bar },
-  data() {
+  setup() {
+    const chartData = reactive({
+      labels: ["January", "February", "March", "April", "May", "June", "July"],
+      datasets: [{ data: [40, 20, 12] }],
+    });
+
+    const chartOptions = reactive({
+      responsive: true,
+    });
+
     return {
-      chartData: {
-        labels: ["January", "February", "March", "April", "May", "June", "July"],
-        datasets: [{ data: [40, 20, 12] }],
-      },
-      chartOptions: {
-        responsive: true,
-      },
+      chartData,
+      chartOptions,
     };
   },
 };
