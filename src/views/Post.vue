@@ -3,21 +3,79 @@
     <div class="contrainer>">
       <div class="row">
         <div class="shadow-sm p-3 mb-5 bg-white rounded">
-          <button button type="button" class="btn btn-outline-primary">
-            ผลรวมของการโพสหต์ทั้งหมด
-          </button>
-          &nbsp;&nbsp;&nbsp;
-          <button button type="button" class="btn btn-outline-primary">
-            ปัญหาด้านความการเรียน
-          </button>
-          &nbsp;&nbsp;&nbsp;
-          <button button type="button" class="btn btn-outline-primary">
-            ปัญหาด้านครอบครัว
-          </button>
-          &nbsp;&nbsp;&nbsp;
-          <button button type="button" class="btn btn-outline-primary">
-            ปัญหาด้านความรัก
-          </button>
+          <div class="container">
+            <h3>Pills</h3>
+            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link active"
+                  id="pills-home-tab"
+                  data-bs-toggle="pill"
+                  data-bs-target="#pills-home"
+                  type="button"
+                  role="tab"
+                  aria-controls="pills-home"
+                  aria-selected="true"
+                >
+                  Home
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link"
+                  id="pills-profile-tab"
+                  data-bs-toggle="pill"
+                  data-bs-target="#pills-profile"
+                  type="button"
+                  role="tab"
+                  aria-controls="pills-profile"
+                  aria-selected="false"
+                >
+                  Profile
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link"
+                  id="pills-contact-tab"
+                  data-bs-toggle="pill"
+                  data-bs-target="#pills-contact"
+                  type="button"
+                  role="tab"
+                  aria-controls="pills-contact"
+                  aria-selected="false"
+                >
+                  Contact
+                </button>
+              </li>
+            </ul>
+            <div class="tab-content" id="pills-tabContent">
+              <div
+                class="tab-pane fade show active"
+                id="pills-home"
+                role="tabpanel"
+                aria-labelledby="pills-home-tab"
+              >
+                A
+              </div>
+              <div
+                class="tab-pane fade"
+                id="pills-profile"
+                role="tabpanel"
+                aria-labelledby="pills-profile-tab"
+              >
+                B
+              </div>
+              <div
+                class="tab-pane fade"
+                id="pills-contact"
+                role="tabpanel"
+                aria-labelledby="pills-contact-tab"
+              >
+                C
+              </div>
+            </div>
+          </div>
           <div class="row">
             <div class="col-sm-6 my-3 pt-3 test-1">
               <div class="card-body">
