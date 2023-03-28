@@ -5,6 +5,7 @@ import Comments from '../views/comment.vue'
 import Quest from '../views/Quest.vue'
 import SignIn from '../views/SignIn.vue'
 import Setting from '../views/Setting.vue'
+import Report from '../views/Report.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -40,11 +41,17 @@ const router = createRouter({
 
         },
         {
+            path: '/report',
+            name: 'report',
+            component: Report,
+        },
+        {
             path: '/setting',
             name: 'setting',
             component: Setting,
 
         }
+
     ]
 })
 
