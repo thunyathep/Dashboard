@@ -3,27 +3,55 @@ import User from '../views/User.vue'
 import Post from '../views/Post.vue'
 import Comments from '../views/comment.vue'
 import Quest from '../views/Quest.vue'
-
+import SignIn from '../views/SignIn.vue'
+import Setting from '../views/Setting.vue'
+import Report from '../views/Report.vue'
 
 const router = createRouter({
     history: createWebHistory(),
     routes: [
         {
-            path: '/',
-            component: User
+            path: '/signIn',
+            name: 'signIn',
+            component: SignIn,
+
+        },
+        {
+            path: '/user',
+            name: 'user',
+            component: User,
+
         },
         {
             path: '/post',
-            component: Post
+            name: 'post',
+            component: Post,
+
         },
         {
             path: '/comment',
-            component: Comments
+            name: 'comment',
+            component: Comments,
+
         },
         {
             path: '/dailyquest',
-            component: Quest
+            name: 'dailyquest',
+            component: Quest,
+
+        },
+        {
+            path: '/report',
+            name: 'report',
+            component: Report,
+        },
+        {
+            path: '/setting',
+            name: 'setting',
+            component: Setting,
+
         }
+
     ]
 })
 

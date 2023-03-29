@@ -16,7 +16,7 @@
 
     <h3>Menu</h3>
     <div class="menu">
-        <router-link class="button" to="/">
+        <router-link class="button" to="/user">
             <span class="material-icons">person</span>
             <span class="text">User Page</span>
         </router-link>
@@ -31,6 +31,10 @@
         <router-link class="button" to="/dailyquest">
             <span class="material-icons">request_page</span>
             <span class="text">Daily Quest</span>
+        </router-link>
+        <router-link class="button" to="/report">
+            <span class="material-icons">report_page</span>
+            <span class="text">Report</span>
         </router-link>
     </div>
 
