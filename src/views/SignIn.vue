@@ -50,7 +50,7 @@
   </main>
 </template>
 
-<script setup>
+<script setup>  
 import { useAuthStore } from "../store/useAuthStore";
 import { ref } from "vue";
 // import bear from "../assets/bear.png";
