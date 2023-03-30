@@ -10,6 +10,7 @@ export const useTest = defineStore("userStore2", () => {
 
     // function get stress 
     const fetchUsers = async ()=> {
+      
         try {
           const res = await axios.get('https://jsonplaceholder.typicode.com/users')
           console.log(res.data)

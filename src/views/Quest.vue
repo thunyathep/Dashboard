@@ -2,6 +2,7 @@
   <main class="dailyquest-page">
     <h1>Daily Quest</h1>
     <p>This is the daily quest</p>
+
     <div class="container-fluid">
       <div class="row">
         <button class="col-5 col-md-1 my-3 p-2 test-1 mx-3 test-stress ">
@@ -24,7 +25,7 @@
               <tbody>
                 <tr v-for="(item, index) in store.testStress" class="m-2">
                   <th scope="row" >{{item.id}}</th>
-                  <th scope="row" >{{ item.name }}</th>
+                  <th scope="row" >{{item.email }}</th>
                   <th scope="row" >2</th>
                   <th scope="row" >
                       <button class="btn-test mx-3 px-3">Edit</button>
@@ -44,14 +45,32 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useTest } from '../store/useTest'
+import { useCount } from '../store/useCount'
+
+const options = ref({
+  responsive: true,
+  maintainAspectRatio: false
+})
 
 const count = ref(0)
 const store = useTest();
+const countStore = useCount();
 const items = ref([{ message: 'Foo' }, { message: 'Bar' }])
 
 onMounted(()=>{
   store.fetchUsers();
 })
+
+
+const increment=()=>{
+  count.value++
+}
+const decrement=()=>{
+  count.value--
+}
+const reset=()=>{
+  count.value = 0
+}
 
 </script>
 
@@ -76,5 +95,9 @@ onMounted(()=>{
 .btn-test{
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
+}
+
+.test-1{
+  background-color: #8FB2AC
 }
 </style>
