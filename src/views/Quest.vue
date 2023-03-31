@@ -2,7 +2,6 @@
   <main class="dailyquest-page">
     <h1>Daily Quest</h1>
     <p>This is the daily quest</p>
-
     <div class="container-fluid">
       <div class="row">
         <button class="col-5 col-md-1 my-3 p-2 test-1 mx-3 test-stress ">
@@ -45,6 +44,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useTest } from '../store/useTest'
+import { useAuthStore } from '../store/useAuthStore'
 import { useCount } from '../store/useCount'
 
 const options = ref({
@@ -54,6 +54,7 @@ const options = ref({
 
 const count = ref(0)
 const store = useTest();
+const storeAuth = useAuthStore();
 const countStore = useCount();
 const items = ref([{ message: 'Foo' }, { message: 'Bar' }])
 

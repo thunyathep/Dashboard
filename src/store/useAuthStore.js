@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import { auth } from '../config.js'
-import { signInWithEmailAndPassword, signOut, onAuthStateChanged } from "firebase/auth";
+import { signInWithEmailAndPassword, signOut, onAuthStateChanged, getIdToken } from "firebase/auth";
 import { useRoute } from "vue-router";
 import router from "../router/index.js";
 import { ref } from "vue";
@@ -9,12 +9,15 @@ import { async } from "@firebase/util";
 export const useAuthStore = defineStore("userStore", () => {
 
     const isLogin = ref(false)
+    const token = ref('')
 
     const init = async ()=>{
         try {
             await onAuthStateChanged(auth,  (user)=>{
                 if(user){
                     console.log(user)
+                    token.value = user.accessToken
+
                     isLogin.value = true
                     router.replace({name: 'user'})
                 }else{
@@ -52,5 +55,5 @@ export const useAuthStore = defineStore("userStore", () => {
         }
     }
     
-    return { init, signInFirebase,  signOutFirbase ,isLogin}
+    return { init, signInFirebase,  signOutFirbase ,isLogin, token}
 })
