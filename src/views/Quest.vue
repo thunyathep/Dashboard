@@ -7,7 +7,7 @@
         <button class="col-5 col-md-1 my-3 p-2 test-1 mx-3 test-stress ">
           test-stress
         </button>
-        <button class="col-5  col-md-1 my-3 p-2 test-2 mx-3 test-consult ">
+        <button @click="store.fetchUsers" class="col-5  col-md-1 my-3 p-2 test-2 mx-3 test-consult ">
           test-consult
         </button>
         <div class="col-12 my-3 p-md-5  table-data ">
@@ -44,36 +44,12 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useTest } from '../store/useTest'
-import { useCount } from '../store/useCount'
 
-import { useAuthStore } from '../store/useAuthStore'
-const storeAuth = useAuthStore();
-
-
-const options = ref({
-  responsive: true,
-  maintainAspectRatio: false
-})
-
-const count = ref(0)
 const store = useTest();
-const countStore = useCount();
-const items = ref([{ message: 'Foo' }, { message: 'Bar' }])
 
 onMounted(()=>{
-  store.fetchUsers();
+  // store.fetchUsers();
 })
-
-
-const increment=()=>{
-  count.value++
-}
-const decrement=()=>{
-  count.value--
-}
-const reset=()=>{
-  count.value = 0
-}
 
 </script>
 
