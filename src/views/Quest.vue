@@ -22,7 +22,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="(item, index) in store.testStress" class="m-2">
+                <!-- <tr v-for="(item, index) in store.testStress" class="m-2">
                   <th scope="row" >{{item.id}}</th>
                   <th scope="row" >{{item.email }}</th>
                   <th scope="row" >2</th>
@@ -31,7 +31,7 @@
                       <button class="btn-test mx-3 px-3">Add</button>
                       <button class="btn-test mx-3 px-3">delete</button>
                   </th>
-                </tr>
+                </tr> -->
               </tbody>
             </table>
           </div>
@@ -44,8 +44,11 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useTest } from '../store/useTest'
-import { useAuthStore } from '../store/useAuthStore'
 import { useCount } from '../store/useCount'
+
+import { useAuthStore } from '../store/useAuthStore'
+const storeAuth = useAuthStore();
+
 
 const options = ref({
   responsive: true,
@@ -54,7 +57,6 @@ const options = ref({
 
 const count = ref(0)
 const store = useTest();
-const storeAuth = useAuthStore();
 const countStore = useCount();
 const items = ref([{ message: 'Foo' }, { message: 'Bar' }])
 
