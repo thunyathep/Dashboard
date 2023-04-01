@@ -1,8 +1,8 @@
 <template>
-  <main class="signIn-page container-fluid">
+  <main class="signIn-page">
     <div class="sign-up">
       <div
-        class="bg-white p-5 w-75 d-flex justify-content-center align-items-center shadow-lg s"
+        class="bg-white p-5 w-75 d-flex justify-content-center align-items-center shadow-lg"
         style="height: 600px; width: 700px"
       >
         <div
@@ -50,7 +50,7 @@
   </main>
 </template>
 
-<script setup>
+<script setup>  
 import { useAuthStore } from "../store/useAuthStore";
 import { ref } from "vue";
 // import bear from "../assets/bear.png";
