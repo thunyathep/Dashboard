@@ -1,14 +1,16 @@
 <template>
-    <main class="dailyquest-page">
-        <h1>Daily Quest</h1>
-        <p>This is the daily quest</p>
+    <main class="quest-page">
+        <h1>Daily quest</h1>
+        <p>This is the Daily quest page</p>
     </main>
 </template>
 
-<script>
+<script setup>
 
 </script>
 
 <style lang="scss" scoped>
 
 </style>
+
+  
