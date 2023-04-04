@@ -31,7 +31,7 @@ onMounted(()=>{
   --primary: #AAD4CC;
   --primaryDark: #8FB2AC;
   --primaryLigth: #A9D4CC;
-  --PrimarySubtle: #CFE5E1;
+  --primarySubtle: #CFE5E1;
 
   --secondary: #7AAAAF;
   --secondaryDark: #789496;

@@ -23,6 +23,13 @@ export const useTest = defineStore("userStore2", () => {
           const res = await reqInstance.get('http://localhost:3000/v1/test/stress/')
           console.log(res.data)
           testStress.value = res.data
+          testStress.value.sort((a, b)=>{
+            if( a.number < b.number){
+              return a
+            }else{
+              return b
+            }
+          })
           }
           catch (error) {
             alert(error)
