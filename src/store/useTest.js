@@ -9,32 +9,18 @@ export const useTest = defineStore("userStore2", () => {
 
     const testStress = ref([])
     const testConsult = ref([])
-
-    const storeAuth = useAuthStore();
-    console.log("================================")
-    console.log("token => " + storeAuth.token)
-    console.log("================================")
     let reqInstance = axios.create({
       headers: {
-        Authorization : `Bearer ${storeAuth.token}`
+        Authorization : `Bearer ${localStorage.getItem('TOKEN')}`
         }
       })
 
     // function get stress 
     const fetchUsers = async ()=> {
-      console.log("================================")
-      console.log("token => " + storeAuth.token)
-      console.log("================================")
       
         try {
-
-          console.log("cccccccccccc")
-          console.log(storeAuth)
           // const res = await reqInstance.get('https://jitd-backend.onrender.com/v1//posts/')
-          const res = await reqInstance.get('http://localhost:3000/v1/posts/')
-
-          res.request
-
+          const res = await reqInstance.get('http://localhost:3000/v1/test/stress/')
           console.log(res.data)
           testStress.value = res.data
           }

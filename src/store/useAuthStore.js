@@ -9,20 +9,17 @@ import { async } from "@firebase/util";
 export const useAuthStore = defineStore("userStore", () => {
 
     const isLogin = ref(false)
-    const token = ref('')
 
     const init = async ()=>{
         try {
-            await onAuthStateChanged(auth,  (user)=>{
+            await onAuthStateChanged(auth,  async (user)=>{
                 if(user){
-                    console.log(user)
-                    token.value = user.accessToken
-
+                    await localStorage.setItem('TOKEN', user.accessToken)
                     isLogin.value = true
                     router.replace({name: 'user'})
+                    console.log(`TOKEN : ${ user.accessToken}`)
                 }else{
-                    console.log(user)
-                    isLogin.value = false
+                    token.value = ''
                     router.replace({name: 'signIn'})
                 }
             })
@@ -55,5 +52,5 @@ export const useAuthStore = defineStore("userStore", () => {
         }
     }
     
-    return { init, signInFirebase,  signOutFirbase ,isLogin, token}
+    return { init, signInFirebase,  signOutFirbase ,isLogin}
 })
