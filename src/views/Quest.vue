@@ -1,48 +1,17 @@
 <template>
-  <div>
-    <div class="contrainer-fluid">
-      <div class="row">
-        <div class="col-12">
-          <h1>Quest</h1>
-        </div>
-        <div>
-          <div class="col-12">
-            <h2>Users</h2>
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th scope="col">ID</th>
-                  <th scope="col">Name</th>
-                  <th scope="col">Email</th>
-                  <th scope="col">Phone</th>
-                  <th scope="col">Website</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr v-for="(item, index) in test.testStress">
-                  <th scope="row">{{ item.id }}</th>
-                  <td>{{ item.name }}</td>
-                  <td>{{ item.email }}</td>
-                  <td>{{ item.phone }}</td>
-                  <td>{{ item.website }}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+    <main class="dailyquest-page">
+        <h1>Daily Quest</h1>
+        <p>This is the daily quest</p>
+    </main>
 </template>
 
-<script setup>
-import { ref, onMounted } from "vue";
-import { useAxios } from "../store/useAxios.js";
-
-const test = useAxios();
-const items = ref([{ message: "Hello"}, { message: "World"}])
+<script>
 
 onMounted(() => {
   test.fetchUsers();
 });
 </script>
+
+<style lang="scss" scoped>
+
+</style>
