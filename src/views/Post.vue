@@ -57,9 +57,9 @@
                 aria-labelledby="pills-home-tab"
               >
                 <div class="row">
-                  <div class="col-sm-6 my-3 pt-3 test-1">
+                  <div class="col-sm-6 my-3 pt-3 AllPost-1">
                     <div class="card-body">
-                      <h5 class="card-title ">จำนวนการโพสต์ของปี 2565</h5>
+                      <h5 class="card-title">จำนวนการโพสต์ของปี 2565</h5>
                       <Bar
                         id="my-chart-id"
                         :options="chartOptions"
@@ -67,9 +67,9 @@
                       />
                     </div>
                   </div>
-                  <div class="col-sm-6 my-3 pt-3 test-2">
+                  <div class="col-sm-6 my-3 pt-3 mr-2 AllPost-2">
+                    <h5 class="card-title">การโพสต์ข้อความล่าสุด</h5>
                     <table class="table table-bordered">
-                      <h5 class="card-title">การโพสต์ข้อความล่าสุด</h5>
                       <thead>
                         <tr>
                           <th scope="col">ลำดับที่</th>
@@ -104,7 +104,7 @@
                       </tbody>
                     </table>
                   </div>
-                  <div class="col-sm-4 pt-3 test-3">
+                  <div class="col-sm-4 pt-3 AllPost-3">
                     <h5 class="card-title">การโพสต์ข้อความล่าสุด</h5>
                     <div class="list-group">
                       <a
@@ -112,7 +112,9 @@
                         class="list-group-item list-group-item-action flex-column align-items-start active"
                       >
                         <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">ตุ๊กตาหมูแสนน่ารักที่รักเธอคนเดียว</h5>
+                          <h5 class="mb-1">
+                            ตุ๊กตาหมูแสนน่ารักที่รักเธอคนเดียว
+                          </h5>
                           <small>1 days ago</small>
                         </div>
 
@@ -128,7 +130,8 @@
                         </div>
 
                         <small class="text-muted"
-                          >พระอาทิตย์เขาตั้งใจทำงานขนาดนั้น จะไปแย่งโลกมาหมุนรอบตัวเองทำไมอ่ะเตง</small
+                          >พระอาทิตย์เขาตั้งใจทำงานขนาดนั้น
+                          จะไปแย่งโลกมาหมุนรอบตัวเองทำไมอ่ะเตง</small
                         >
                       </a>
                       <a
@@ -140,7 +143,8 @@
                           <small class="text-muted">2 days ago</small>
                         </div>
                         <small class="text-muted"
-                          >บางทีงานก็ทำต้วเองก็ได้นะ อย่ามาใก้เราทำเยอะขนาดนั้น</small
+                          >บางทีงานก็ทำต้วเองก็ได้นะ
+                          อย่ามาใก้เราทำเยอะขนาดนั้น</small
                         >
                       </a>
                       <a
@@ -153,7 +157,8 @@
                         </div>
 
                         <small class="text-muted"
-                          >ครอบครับที่ดีคือครอบครัวที่รักเรามากๆไม่ใช่หรอคะ ถ้าเขาไม่รักเราจะเป็นครอบครัวได้ยังไงกัน</small
+                          >ครอบครับที่ดีคือครอบครัวที่รักเรามากๆไม่ใช่หรอคะ
+                          ถ้าเขาไม่รักเราจะเป็นครอบครัวได้ยังไงกัน</small
                         >
                       </a>
                       <a
@@ -166,12 +171,14 @@
                         </div>
 
                         <small class="text-muted"
-                          >เอาแค่มาเอาน้ำหวานจากผม เพื่อที่จะได้มีชีวิตไปหาคนนั้น ผมอยากเลอกชอบเขาแล้วครับ ฮืออ</small
+                          >เอาแค่มาเอาน้ำหวานจากผม
+                          เพื่อที่จะได้มีชีวิตไปหาคนนั้น
+                          ผมอยากเลอกชอบเขาแล้วครับ ฮืออ</small
                         >
                       </a>
                     </div>
                   </div>
-                  <div class="col-sm-4 pt-3 test-3">
+                  <div class="col-sm-4 pt-3 AllPost-4">
                     <h5 class="card-title">โพสต์ที่มีการกดถูกใจมากที่สุด</h5>
                     <div class="list-group">
                       <a
@@ -179,7 +186,9 @@
                         class="list-group-item list-group-item-action flex-column align-items-start active"
                       >
                         <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">ตุ๊กตาหมูแสนน่ารักที่รักเธอคนเดียว</h5>
+                          <h5 class="mb-1">
+                            ตุ๊กตาหมูแสนน่ารักที่รักเธอคนเดียว
+                          </h5>
                           <small>1 days ago</small>
                         </div>
 
@@ -195,7 +204,8 @@
                         </div>
 
                         <small class="text-muted"
-                          >พระอาทิตย์เขาตั้งใจทำงานขนาดนั้น จะไปแย่งโลกมาหมุนรอบตัวเองทำไมอ่ะเตง</small
+                          >พระอาทิตย์เขาตั้งใจทำงานขนาดนั้น
+                          จะไปแย่งโลกมาหมุนรอบตัวเองทำไมอ่ะเตง</small
                         >
                       </a>
                       <a
@@ -207,7 +217,8 @@
                           <small class="text-muted">2 days ago</small>
                         </div>
                         <small class="text-muted"
-                          >บางทีงานก็ทำต้วเองก็ได้นะ อย่ามาใก้เราทำเยอะขนาดนั้น</small
+                          >บางทีงานก็ทำต้วเองก็ได้นะ
+                          อย่ามาใก้เราทำเยอะขนาดนั้น</small
                         >
                       </a>
                       <a
@@ -220,7 +231,8 @@
                         </div>
 
                         <small class="text-muted"
-                          >ครอบครับที่ดีคือครอบครัวที่รักเรามากๆไม่ใช่หรอคะ ถ้าเขาไม่รักเราจะเป็นครอบครัวได้ยังไงกัน</small
+                          >ครอบครับที่ดีคือครอบครัวที่รักเรามากๆไม่ใช่หรอคะ
+                          ถ้าเขาไม่รักเราจะเป็นครอบครัวได้ยังไงกัน</small
                         >
                       </a>
                       <a
@@ -233,15 +245,16 @@
                         </div>
 
                         <small class="text-muted"
-                          >เอาแค่มาเอาน้ำหวานจากผม เพื่อที่จะได้มีชีวิตไปหาคนนั้น ผมอยากเลอกชอบเขาแล้วครับ ฮืออ</small
+                          >เอาแค่มาเอาน้ำหวานจากผม
+                          เพื่อที่จะได้มีชีวิตไปหาคนนั้น
+                          ผมอยากเลอกชอบเขาแล้วครับ ฮืออ</small
                         >
                       </a>
                     </div>
                   </div>
-                  <div class="col-sm-4 pt-3 test-3">
+                  <div class="col-sm-4 pt-3 AllPost-5">
                     <div>
                       <pie-chart>Pie Chart</pie-chart>
-                      
                     </div>
                   </div>
                 </div>
@@ -253,9 +266,9 @@
                 aria-labelledby="pills-profile-tab"
               >
                 <div class="row">
-                  <div class="col-sm-6 my-3 pt-3 test-1">
+                  <div class="col-sm-6 my-3 pt-3 PostLife-1">
                     <div class="card-body">
-                      <h5 class="card-title">Bar Chart</h5>
+                      <h5 class="card-title">จำนวนโพสต์เกี่บวกับการใช้ชีวิต</h5>
                       <Bar
                         id="my-chart-id"
                         :options="chartOptions"
@@ -263,14 +276,14 @@
                       />
                     </div>
                   </div>
-                  <div class="col-sm-6 my-3 pt-3 test-2">
+                  <div class="col-sm-6 my-3 pt-3 PostLife-2">
                     <table class="table table-bordered">
                       <thead>
                         <tr>
-                          <th scope="col">#</th>
-                          <th scope="col">First</th>
-                          <th scope="col">Last</th>
-                          <th scope="col">Handle</th>
+                          <th scope="col">ลำดับที่</th>
+                          <th scope="col">ชื่อ</th>
+                          <th scope="col">นามสกุล</th>
+                          <th scope="col">ข้อความที่โพสต์</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -278,23 +291,29 @@
                           <th scope="row">1</th>
                           <td>Mark</td>
                           <td>Otto</td>
-                          <td>@mdo</td>
+                          <td>ชีวิตของนเราทำงานหนักเพื่ออะไรกันครับ</td>
                         </tr>
                         <tr>
                           <th scope="row">2</th>
                           <td>Jacob</td>
                           <td>Thornton</td>
-                          <td>@fat</td>
+                          <td>
+                            ผมมีชีวิตเพื่อทำตามที่คนอื่นต้องจาก
+                            จนไม่มีความรู้สึกอะไรเลย อยากมีความสุขบ้าง
+                          </td>
                         </tr>
                         <tr>
                           <th scope="row">3</th>
                           <td colspan="2">Larry the Bird</td>
-                          <td>@twitter</td>
+                          <td>
+                            ทุกวันนี้ชีวิตมันยุ่งยากจังเลยค่ะ
+                            เราจะได้สบายเมื่อไหร่นะคะ?
+                          </td>
                         </tr>
                       </tbody>
                     </table>
                   </div>
-                  <div class="col-sm-4 pt-3 test-3">
+                  <div class="col-sm-4 pt-3 PostLife-3">
                     <div class="list-group">
                       <a
                         href="#"
@@ -360,7 +379,7 @@
                       </a>
                     </div>
                   </div>
-                  <div class="col-sm-4 pt-3 test-3">
+                  <div class="col-sm-4 pt-3 PostLife-4">
                     <div>
                       <a
                         href="#"
@@ -377,7 +396,7 @@
                       </a>
                     </div>
                   </div>
-                  <div class="col-sm-4 pt-3 test-3">
+                  <div class="col-sm-4 pt-3 PostLife-5">
                     <div>
                       <pie-chart>Pie Chart</pie-chart>
                       <pie-chart>Pie Chart</pie-chart>
@@ -392,9 +411,9 @@
                 aria-labelledby="pills-contact-tab"
               >
                 <div class="row">
-                  <div class="col-sm-6 my-3 pt-3 test-1">
+                  <div class="col-sm-6 my-3 pt-3 PostStudy-1">
                     <div class="card-body">
-                      <h5 class="card-title">Bar Chart</h5>
+                      <h5 class="card-title">โพสต์เกี่ยวกับการศึกษา</h5>
                       <Bar
                         id="my-chart-id"
                         :options="chartOptions"
@@ -402,14 +421,14 @@
                       />
                     </div>
                   </div>
-                  <div class="col-sm-6 my-3 pt-3 test-2">
+                  <div class="col-sm-6 my-3 pt-3 PostStudy-2">
                     <table class="table table-bordered">
                       <thead>
                         <tr>
-                          <th scope="col">#</th>
-                          <th scope="col">First</th>
-                          <th scope="col">Last</th>
-                          <th scope="col">Handle</th>
+                          <th scope="col">ลำดับที่</th>
+                          <th scope="col">ชื่อ</th>
+                          <th scope="col">นามสกุล</th>
+                          <th scope="col">ข้อความที่โพสต์</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -433,7 +452,7 @@
                       </tbody>
                     </table>
                   </div>
-                  <div class="col-sm-4 pt-3 test-3">
+                  <div class="col-sm-4 pt-3 PostStudy-3">
                     <div class="list-group">
                       <a
                         href="#"
@@ -499,7 +518,7 @@
                       </a>
                     </div>
                   </div>
-                  <div class="col-sm-4 pt-3 test-3">
+                  <div class="col-sm-4 pt-3 PostStudy-4">
                     <div>
                       <a
                         href="#"
@@ -516,38 +535,17 @@
                       </a>
                     </div>
                   </div>
-                  <div class="col-sm-4 pt-3 test-3">
-                    <div>
-                      <pie-chart>Pie Chart</pie-chart>
-                      <pie-chart>Pie Chart</pie-chart>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
           </div>
-          <nav aria-label="Page navigation example">
-            <ul class="pagination justify-content-center">
-              <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1">Previous</a>
-              </li>
-              <li class="page-item"><a class="page-link" href="#">1</a></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-              </li>
-            </ul>
-          </nav>
         </div>
       </div>
     </div>
   </main>
 </template>
 
-<script type="text/javascript">
-// import { PieChart } from "vue-chartjs";
-
+<script>
 import {
   Chart as ChartJS,
   Title,
@@ -568,7 +566,6 @@ ChartJS.register(
 
 import { Bar } from "vue-chartjs";
 
-//import Bar from "@/components/Bar.vue";
 import { reactive } from "vue";
 
 export default {
@@ -592,25 +589,152 @@ export default {
 </script>
 
 <style>
-.test-1 {
+.piechart {
   background-color: #f1f1f1;
   border: 1px solid #d3d3d3;
   border-radius: 5px;
   padding: 20px;
-  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.AllPost-1 {
+  background-color: #f1f1f1;
+  border: 1px solid #d3d3d3;
+  border-radius: 5px;
+  padding: 20px;
+  /* margin-right: 5px; */
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
 }
-.test-2 {
+
+.AllPost-2 {
   background-color: #f1f1f1;
   border: 1px solid #d3d3d3;
   border-radius: 5px;
   padding: 20px;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
 }
-.test-3 {
+
+.AllPost-3 {
   background-color: #f1f1f1;
-  border: 1px solid #fffcfc;
+  border: 1px solid #d3d3d3;
   border-radius: 5px;
   padding: 20px;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+.AllPost-4 {
+  background-color: #f1f1f1;
+  border: 1px solid #d3d3d3;
+  border-radius: 5px;
+  padding: 20px;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+.AllPost-5 {
+  background-color: #f1f1f1;
+  border: 1px solid #d3d3d3;
+  border-radius: 5px;
+  padding: 20px;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+.PostLife-1 {
+  background-color: #f1f1f1;
+  border: 1px solid #d3d3d3;
+  border-radius: 5px;
+  padding: 20px;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+.PostLife-2 {
+  background-color: #f1f1f1;
+  border: 1px solid #d3d3d3;
+  border-radius: 5px;
+  padding: 20px;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+.PostLife-3 {
+  background-color: #f1f1f1;
+  border: 1px solid #d3d3d3;
+  border-radius: 5px;
+  padding: 20px;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+.PostLife-4 {
+  background-color: #f1f1f1;
+  border: 1px solid #d3d3d3;
+  border-radius: 5px;
+  padding: 20px;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+.PostLife-5 {
+  background-color: #f1f1f1;
+  border: 1px solid #d3d3d3;
+  border-radius: 5px;
+  padding: 20px;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+.PostStudy-1 {
+  background-color: #f1f1f1;
+  border: 1px solid #d3d3d3;
+  border-radius: 5px;
+  padding: 20px;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+.PostStudy-2 {
+  background-color: #f1f1f1;
+  border: 1px solid #d3d3d3;
+  border-radius: 5px;
+  padding: 20px;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+.PostStudy-3 {
+  background-color: #f1f1f1;
+  border: 1px solid #d3d3d3;
+  border-radius: 5px;
+  padding: 20px;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+.PostStudy-4 {
+  background-color: #f1f1f1;
+  border: 1px solid #d3d3d3;
+  border-radius: 5px;
+  padding: 20px;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+.PostStudy-5 {
+  background-color: #f1f1f1;
+  border: 1px solid #d3d3d3;
+  border-radius: 5px;
+  padding: 20px;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
 }
 </style>
