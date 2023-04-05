@@ -24,7 +24,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="(item, index) in store.testStress" class="m-2 test-row" @click="onClickToView(index)">
+              <tr v-for="(item, index) in store.testTemp" class="m-2 test-row" @click="onClickToView(index)">
                 <th scope="row">{{ item.number }}</th>
                 <th scope="row">{{ item.questionText }}</th>
               </tr>
@@ -47,8 +47,6 @@
         </div>
       </div>
     </div>
-
-
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -98,18 +96,14 @@ import { useTest } from '../store/useTest'
 
 const store = useTest();
 const DataOnClick = ref({});
+const dataShow = ref([]);
 
 onMounted(() => {
   store.fetchUsers();
 })
 
 const onClickToView=(index)=>{
-  console.log(index)
-  console.log('--------------')
   DataOnClick.value = store.testStress[index]
-  console.log(DataOnClick.value.number)
-  console.log(DataOnClick.value.questionText)
-
 }
 
 </script>
@@ -149,7 +143,7 @@ const onClickToView=(index)=>{
 
   background-color: var(--primarySubtle);
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  height: 100vh;
+  height: 80vh;
 }
 
 .test-row:hover {
