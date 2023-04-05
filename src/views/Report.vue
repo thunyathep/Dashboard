@@ -110,14 +110,6 @@
                     </table>
                   </div>
                 </div>
-                <div class="row">
-                  <div class="col-sm-4 pt-3 test-3">
-                    <div>
-                      <pie-chart>Pie Chart</pie-chart>
-                      
-                    </div>
-                  </div>
-                </div>
               </div>
               <div
                 class="tab-pane fade"
@@ -166,12 +158,6 @@
                         </tr>
                       </tbody>
                     </table>
-                  </div>
-                  <div class="col-sm-4 pt-3 test-3">
-                    <div>
-                      <pie-chart>Pie Chart</pie-chart>
-                      <pie-chart>Pie Chart</pie-chart>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -223,29 +209,10 @@
                       </tbody>
                     </table>
                   </div>
-                  <div class="col-sm-4 pt-3 test-3">
-                    <div>
-                      <pie-chart>Pie Chart</pie-chart>
-                      <pie-chart>Pie Chart</pie-chart>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
           </div>
-          <nav aria-label="Page navigation example">
-            <ul class="pagination justify-content-center">
-              <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1">Previous</a>
-              </li>
-              <li class="page-item"><a class="page-link" href="#">1</a></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-              </li>
-            </ul>
-          </nav>
         </div>
       </div>
     </div>

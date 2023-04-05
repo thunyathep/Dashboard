@@ -1,48 +1,29 @@
-<template>
-  <div>
-    <div class="contrainer-fluid">
-      <div class="row">
-        <div class="col-12">
-          <h1>Quest</h1>
-        </div>
-        <div>
-          <div class="col-12">
-            <h2>Users</h2>
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th scope="col">ID</th>
-                  <th scope="col">Name</th>
-                  <th scope="col">Email</th>
-                  <th scope="col">Phone</th>
-                  <th scope="col">Website</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr v-for="(item, index) in test.testStress">
-                  <th scope="row">{{ item.id }}</th>
-                  <td>{{ item.name }}</td>
-                  <td>{{ item.email }}</td>
-                  <td>{{ item.phone }}</td>
-                  <td>{{ item.website }}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</template>
+<div>
+  <canvas id="myChart"></canvas>
+</div>
 
-<script setup>
-import { ref, onMounted } from "vue";
-import { useAxios } from "../store/useAxios.js";
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-const test = useAxios();
-const items = ref([{ message: "Hello"}, { message: "World"}])
+<script>
+  const ctx = document.getElementById('myChart');
 
-onMounted(() => {
-  test.fetchUsers();
-});
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      datasets: [{
+        label: '# of Votes',
+        data: [12, 19, 3, 5, 2, 3],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
 </script>
+ 
