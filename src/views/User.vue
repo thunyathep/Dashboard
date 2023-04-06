@@ -105,7 +105,7 @@
     </main>
 </template>
 
-<script>
+<style>
 
   .card-body{
     align-content: center;
