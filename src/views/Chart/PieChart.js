@@ -1,4 +1,4 @@
-const data1 = {
+const data = {
     labels: [
       'Red',
       'Blue',
