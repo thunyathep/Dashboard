@@ -6,7 +6,7 @@
             <div class="container">
               <div class="row"><h3>Comment System</h3>
                 <div class="col-sm-6 my-5 barchart">
-                  <h3>Number of new Comments</h3>
+                  <h3>จำนวนการแสดงความคิดเห็น</h3>
                   <Bar
                     id="my-chart-id"
                     :options="chartOptions"
@@ -15,7 +15,6 @@
                 </div>
                 <div class="col-sm-6 my-5 test-2">
                   <table class="table table-bordered">
-                    <h5 class="card-title">ชื่อผู้ใช้งานล่าสุดล่าสุด</h5>
                     <thead>
                       <tr>
                         <th scope="col">ลำดับที่</th>
@@ -27,30 +26,30 @@
                     <tbody>
                       <tr>
                         <th scope="row">1</th>
-                        <td>สุระวีร์</td>
-                        <td>ใคร่ครวญ</td>
-                        <td>ขี้เกียจทำ SE แล้วครับ</td>
+                        <td>กระต่ายน้อย</td>
+                        <td>สุขใจในโลกอับเฉา</td>
+                        <td>คุณสามารถมีความสุขได้ด้วยตีวคุณเองนะ</td>
                       </tr>
                       <tr>
                         <th scope="row">4</th>
-                        <td colspan="2">ธัญๆ</td>
-                        <td>การทำงานที่แสนมีความสุข อยากลาออกแล้ว</td>
+                        <td colspan="2">คุณความสุข</td>
+                        <td>ลาออกเลยครับ ออกมาเจอโลกที่กว้างใหญ่อีกครั้ง</td>
                       </tr>
                       <tr>
                         <th scope="row">2</th>
-                        <td>ออฟ</td>
-                        <td>อรรถพร</td>
-                        <td>PM ที่เก่งเกิน ไม่ไหวว</td>
+                        <td>พระอาทิตย์</td>
+                        <td>ที่รักพระจันทร์</td>
+                        <td>ความรักนั้นคาดเดาได้ยากจริงๆครับ รักตัวเองมากๆ</td>
                       </tr>
                       <tr>
                         <th scope="row">3</th>
-                        <td colspan="2">เทพทีม</td>
-                        <td>ไหว้ย่อให้พวงมาลัย</td>
+                        <td colspan="2">อนาคตของคุณหญ้า</td>
+                        <td>ศุ้ๆนะครับ อาจจะยากหน่อย แต่เวลาจะช่วยคุณอง</td>
                       </tr>
                       <tr>
                         <th scope="row">4</th>
-                        <td colspan="2">พ่อบอล</td>
-                        <td>ผู้รู้ ผู้ตื่น ผู้ใจเย็น</td>
+                        <td colspan="2">ไม่อยากรับรู้</td>
+                        <td>ลองไปเที่ยวที่เงียบๆดูไหมครับ เผื่อจะอารมณ์ดีขึ้น</td>
                       </tr>
                     </tbody>
                   </table>
@@ -58,7 +57,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-sm-4 my-8 pt-3 piechart">
+              <div class="col-sm-4 my-6 pt-3 piechart">
                 <h5 class="card-title">สรุปการใช้งานความคิดเห็น</h5>
                 <canvas id="myChart"></canvas>
               </div>
@@ -105,7 +104,7 @@
       const ctx = document.getElementById("myChart");
   
       const data = {
-        labels: ["Red", "Blue", "Yellow"],
+        labels: ["การงาน", "การเงิน", "ความรัก"],
         datasets: [
           {
             label: "My First Dataset",
