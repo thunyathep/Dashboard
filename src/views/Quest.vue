@@ -106,6 +106,12 @@ const onClickToView=(index)=>{
   DataOnClick.value = store.testStress[index]
 }
 
+const test = useAxios();
+const items = ref([{ message: "Hello"}, { message: "World"}])
+
+onMounted(() => {
+  test.fetchUsers();
+});
 </script>
 
 <style lang="scss">
