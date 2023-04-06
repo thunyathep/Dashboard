@@ -7,7 +7,7 @@
         <button class="col-5 col-md-1 my-3 p-2 test-5 mx-3 test-stress-btn ">
           test-stress
         </button>
-        <button @click="store.fetchUsers" class="col-5  col-md-1 my-3 p-2 test-2 mx-3 test-consult-btn "
+        <button @click="store.fetchTests" class="col-5  col-md-1 my-3 p-2 test-2 mx-3 test-consult-btn "
           data-bs-toggle="modal" data-bs-target="#exampleModal">
           test-consult
         </button>
@@ -99,18 +99,18 @@ const DataOnClick = ref({});
 const dataShow = ref([]);
 
 onMounted(() => {
-  store.fetchUsers();
+  store.fetchTeests();
 })
 
 const onClickToView=(index)=>{
   DataOnClick.value = store.testStress[index]
 }
 
-const test = useAxios();
+const test = useTest();
 const items = ref([{ message: "Hello"}, { message: "World"}])
 
 onMounted(() => {
-  test.fetchUsers();
+  test.fetchTests();
 });
 </script>
 

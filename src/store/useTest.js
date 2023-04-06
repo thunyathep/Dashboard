@@ -23,11 +23,11 @@ export const useTest = defineStore("userStore2", () => {
       })
 
     // function get stress 
-    const fetchUsers = async ()=> {
+    const fetchTests = async ()=> {
       
         try {
           // const res = await reqInstance.get('https://jitd-backend.onrender.com/v1//posts/')
-          const res = await reqInstance.get('http://localhost:3000/v1/test/stress/')
+          const res = await reqInstance.get('https://jitd-backend.onrender.com/v1/test/stress/')
           console.log(res.data)
           res.data.sort((a, b)=> parseInt(a.number) - parseInt(b.number))
 
@@ -48,5 +48,5 @@ export const useTest = defineStore("userStore2", () => {
 
     // function get consult 
 
-    return { testStress, testConsult, fetchUsers, testTemp}
+    return { testStress, testConsult, fetchTests, testTemp}
 })

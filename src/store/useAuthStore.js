@@ -19,7 +19,6 @@ export const useAuthStore = defineStore("userStore", () => {
                     router.replace({name: 'user'})
                     console.log(`TOKEN : ${ user.accessToken}`)
                 }else{
-                    token.value = ''
                     router.replace({name: 'signIn'})
                 }
             })
