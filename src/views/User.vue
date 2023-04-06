@@ -103,9 +103,10 @@
         </div>    
       </div>
     </main>
-  </template>
-  
-  <style lang="scss">
+</template>
+
+<script>
+
   .card-body{
     align-content: center;
   }
