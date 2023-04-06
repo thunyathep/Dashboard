@@ -6,10 +6,13 @@
 </template>
 
 <script>
-
-onMounted(() => {
-  test.fetchUsers();
-});
+export default {
+    name: 'DailyQuest',
+    components: {},
+    setup() {
+        return {};
+    },
+};
 </script>
 
 <style lang="scss" scoped>
