@@ -1,7 +1,6 @@
 <template>
   <main class="dailyquest-page">
-    <h1>Daily Quest</h1>
-    <p>This is the daily quest</p>
+    <h1> Test System Page </h1>
     <div class="container-fluid">
       <div class="row">
         <button class="col-5 col-md-1 my-3 p-2 test-5 mx-3 test-stress-btn ">
@@ -30,6 +29,17 @@
               </tr>
             </tbody>
           </table>
+
+          <div>
+            <nav aria-label="Page navigation example">
+              <ul class="pagination text-center">
+                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                <li v-for="(item, index) in store.pageTotal" class="page-item"><a class="page-link" href="#"
+                    @click="store.selectPage(index + 1)">{{ index + 1 }}</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+              </ul>
+            </nav>
+          </div>
         </div>
       </div>
       <div class="col-12 col-md-6 my-3 px-3 ">
@@ -38,55 +48,16 @@
 
           <!-- # show a qiuestion  -->
           <div>
-            <h4>question</h4>
-            <p>dsfdsfdsfdsfdsfdsf</p>
-          </div>
+              <h4>Question</h4>
+              <p>ปวดหรือเกร็งกล้ามเนื้อบริเวณท้ายทอย หลัง หรือไหล่</p>
+            </div>
           <div>
-            <h4>choice</h4>
+            <h4>choices</h4>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">View Test of Stress No. 1</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <h4>Question</h4>
-            <!-- <p>{{ DataOnClick.number }}</p> -->
-            <h4>Choice</h4>
-            <table class="table">
-              <thead>
-                <tr>
-                  <th scope="col" class="col-1">id</th>
-                  <th scope="col" class="col-4">question</th>
-                  <th scope="col" class="col-4"></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr v-for="(item, index) in store.testStress" class="m-2">
-                  <th scope="row">{{ item.number }}</th>
-                  <th scope="row">{{ item.questionText }}</th>
-                  <th scope="row">
-                    <button class="btn-test mx-3 px-3 bg bg-primary view-test">View</button>
-                  </th>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn-cancle mx-2" data-bs-dismiss="modal">cancle</button>
-            <button type="button" class="btn-logout " data-bs-dismiss="modal" aria-label="Close"
-              @click="handlerSignOut">Save</button>
-          </div>
-        </div>
-      </div>
-    </div>
   </main>
 </template>
 
@@ -99,19 +70,13 @@ const DataOnClick = ref({});
 const dataShow = ref([]);
 
 onMounted(() => {
-  store.fetchTeests();
+  store.fetchTests();
 })
 
-const onClickToView=(index)=>{
+const onClickToView = (index) => {
   DataOnClick.value = store.testStress[index]
 }
 
-const test = useTest();
-const items = ref([{ message: "Hello"}, { message: "World"}])
-
-onMounted(() => {
-  test.fetchTests();
-});
 </script>
 
 <style lang="scss">
