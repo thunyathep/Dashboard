@@ -22,12 +22,33 @@ onMounted(()=>{
 
 <style lang="scss">
 :root {
-  --primary: #4ade80;
   --grey: #64748b;
   --dark: #1e293b;
   --dark-alt: #334155;
   --light: #f1f5f9;
   --sidebar-width: 300px;
+
+  --primary: #AAD4CC;
+  --primaryDark: #8FB2AC;
+  --primaryLigth: #A9D4CC;
+  --primarySubtle: #CFE5E1;
+
+  --secondary: #7AAAAF;
+  --secondaryDark: #789496;
+  --secondaryLigth: #8FAFB2;
+  --secondarySubtle: #B5C8C9;
+
+  --thirterydary: #FFAD65;
+  --thirterydaryDark: #CC8A51;
+  --thirterydaryLigth: #FFC999;
+  --thirterydarySubtle: #FFE4CC;
+
+  --error: #FF8080;
+  --success: #3DCC78;
+  --warning: #FFB44D;
+
+  --bg3: #F8FAFA;
+
 }
 
 * {

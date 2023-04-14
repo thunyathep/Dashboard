@@ -1,5 +1,3 @@
-<!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
-
 <script type="text/javascript">
   
   import Chart from 'chart.js/auto';
@@ -114,14 +112,13 @@
         </div>    
       </div>
     </main>
-  </template>
-  
-  <style lang="scss">
+</template>
+
+<style>
 
   .card-body{
     align-content: center;
   }
-
   .barchart {
     background-color: #f1f1f1;
     border: 1px solid #d3d3d3;

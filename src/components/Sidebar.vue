@@ -70,7 +70,6 @@ const is_expanded = ref(localStorage.getItem("is_expanded") === "true")
         min-height: 100vh;
         overflow: hidden;
         padding: 1rem;
-
         background-color: var(--dark);
         color: var(--light);
 

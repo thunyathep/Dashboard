@@ -1,5 +1,5 @@
 <template>
-  <main class="post-page">
+  <main class="Report-page">
     <div class="contrainer>">
       <div class="row">
         <div class="shadow-sm p-3 mb-5 bg-white rounded">
@@ -59,7 +59,7 @@
                 <div class="row">
                   <div class="col-sm-6 my-3 pt-3 test-1">
                     <div class="card-body">
-                      <h5 class="card-title">จำนวนของผู้ใช้งานที่โดนรายงาน</h5>
+                      <h5 class="card-title">จำนวนของผู้ใช้งานที่ถูกรายงาน</h5>
                       <Bar
                         id="my-chart-id"
                         :options="chartOptions"
@@ -69,53 +69,44 @@
                   </div>
                   <div class="col-sm-6 my-3 pt-3 test-2">
                     <table class="table table-bordered">
-                      <h5 class="card-title">การโพสต์ข้อความล่าสุด</h5>
                       <thead>
                         <tr>
                           <th scope="col">ลำดับที่</th>
                           <th scope="col">ชื่อ</th>
                           <th scope="col">นามสกุล</th>
-                          <th scope="col">ข้อความที่โพสต์</th>
+                          <th scope="col">เหตุผลที่ถูกรายงาน</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
                           <th scope="row">1</th>
-                          <td>สุระวีร์</td>
-                          <td>ใคร่ครวญ</td>
-                          <td>ขี้เกียจทำ SE แล้วครับ</td>
+                          <td>อมยิ้ม</td>
+                          <td>อาบยาพิษ</td>
+                          <td>ก่อนกวน</td>
                         </tr>
                         <tr>
                           <th scope="row">4</th>
-                          <td colspan="2">ธัญๆ</td>
-                          <td>การทำงานที่แสนมีความสุข อยากลาออกแล้ว</td>
+                          <td colspan="2">หุ่ยนต์</td>
+                          <td>น่ากลัว</td>
                         </tr>
                         <tr>
                           <th scope="row">2</th>
-                          <td>ออฟ</td>
-                          <td>อรรถพร</td>
-                          <td>PM ที่เก่งเกิน ไม่ไหวว</td>
+                          <td>ช้างน้อย</td>
+                          <td>ที่ไม่น้อย</td>
+                          <td></td>
                         </tr>
                         <tr>
                           <th scope="row">3</th>
-                          <td colspan="2">เทพทีม</td>
-                          <td>ไหว้ย่อให้พวงมาลัย</td>
+                          <td colspan="2">เทพเจ้าหวย</td>
+                          <td>คำพูดไม่เหมาะสม</td>
                         </tr>
                         <tr>
                           <th scope="row">4</th>
-                          <td colspan="2">พ่อบอล</td>
-                          <td>ผู้รู้ ผู้ตื่น ผู้ใจเย็น</td>
+                          <td colspan="2">ลูกบอล</td>
+                          <td></td>
                         </tr>
                       </tbody>
                     </table>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-sm-4 pt-3 test-3">
-                    <div>
-                      <pie-chart>Pie Chart</pie-chart>
-                      
-                    </div>
                   </div>
                 </div>
               </div>
@@ -140,38 +131,42 @@
                     <table class="table table-bordered">
                       <thead>
                         <tr>
-                          <th scope="col">#</th>
-                          <th scope="col">First</th>
-                          <th scope="col">Last</th>
-                          <th scope="col">Handle</th>
+                          <th scope="col">ลำดับที่</th>
+                          <th scope="col">ชื่อ</th>
+                          <th scope="col">นามสกุล</th>
+                          <th scope="col">ข้อความที่โพสต์</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
                           <th scope="row">1</th>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
+                          <td>อมยิ้ม</td>
+                          <td>อาบยาพิษ</td>
+                          <td>อยากจะฆ่าแฟนให้ตาย</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">4</th>
+                          <td colspan="2">หุ่ยนต์</td>
+                          <td>เบื่อเจ้ากระต่าย โพสต์ไร้สาระ</td>
                         </tr>
                         <tr>
                           <th scope="row">2</th>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
-                          <td>@fat</td>
+                          <td>ช้างน้อย</td>
+                          <td>ที่ไม่น้อย</td>
+                          <td>ไอ้คนแบบนั้น ตายๆไปซะ</td>
                         </tr>
                         <tr>
                           <th scope="row">3</th>
-                          <td colspan="2">Larry the Bird</td>
-                          <td>@twitter</td>
+                          <td colspan="2">เทพเจ้าหวย</td>
+                          <td>งวดนี้ไม่ได้ งวดหน้าเอาใหม่</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">4</th>
+                          <td colspan="2">ลูกบอล</td>
+                          <td>ผู้โชคร้ายทำไมต้องเป็นผมทุกที</td>
                         </tr>
                       </tbody>
                     </table>
-                  </div>
-                  <div class="col-sm-4 pt-3 test-3">
-                    <div>
-                      <pie-chart>Pie Chart</pie-chart>
-                      <pie-chart>Pie Chart</pie-chart>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -196,56 +191,47 @@
                     <table class="table table-bordered">
                       <thead>
                         <tr>
-                          <th scope="col">#</th>
-                          <th scope="col">First</th>
-                          <th scope="col">Last</th>
-                          <th scope="col">Handle</th>
+                          <th scope="col">ลำดับที่</th>
+                          <th scope="col">ชื่อ</th>
+                          <th scope="col">นามสกุล</th>
+                          <th scope="col">เหตุผลที่ถูกรายงาน</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
                           <th scope="row">1</th>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
+                          <td>เสือ</td>
+                          <td>ผู้กล้าหาญ</td>
+                          <td>ใช้คำหยาบคาย</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">4</th>
+                          <td colspan="2">สมิงขาว</td>
+                          <td>ใช้คำที่ส่อถึงการคุกคาม หรือทำร้ายสภาพจิตใจ</td>
                         </tr>
                         <tr>
                           <th scope="row">2</th>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
-                          <td>@fat</td>
+                          <td>เวลา</td>
+                          <td>ที่ลาวงลับ</td>
+                          <td>แสดงความคิดเห็นทำร้ายจิตใจ</td>
                         </tr>
                         <tr>
                           <th scope="row">3</th>
-                          <td colspan="2">Larry the Bird</td>
-                          <td>@twitter</td>
+                          <td colspan="2">น้องแอปเปิ้ล</td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">4</th>
+                          <td colspan="2">ลูกบอล</td>
+                          <td></td>
                         </tr>
                       </tbody>
                     </table>
-                  </div>
-                  <div class="col-sm-4 pt-3 test-3">
-                    <div>
-                      <pie-chart>Pie Chart</pie-chart>
-                      <pie-chart>Pie Chart</pie-chart>
-                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <nav aria-label="Page navigation example">
-            <ul class="pagination justify-content-center">
-              <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1">Previous</a>
-              </li>
-              <li class="page-item"><a class="page-link" href="#">1</a></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-              </li>
-            </ul>
-          </nav>
         </div>
       </div>
     </div>
