@@ -5,11 +5,8 @@
     </main>
 </template>
 
-<script>
+<script type="text/javascript">
 
-onMounted(() => {
-  test.fetchUsers();
-});
 </script>
 
 <style lang="scss" scoped>
