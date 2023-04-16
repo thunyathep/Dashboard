@@ -1,7 +1,16 @@
-<script type="text/javascript">
-  
+<script>
+  import { useUserStore } from '../store/useUserStore';
+
   import Chart from 'chart.js/auto';
+
+  import { onMounted, ref } from 'vue';
   
+  const userStore = useUserStore();
+
+  // onMounted(() => {
+  //   userStore.saveUsers();
+  // })
+
   export default {
     name: 'UserBarChart',
     props: {

@@ -23,7 +23,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="(item, index) in store.testTemp" class="m-2 test-row" @click="onClickToView(index)">
+              <tr v-for="(item, index) in store.testTemp" :key="item.id" class="m-2 test-row" @click="onClickToView(index)">
                 <th scope="row">{{ item.number }}</th>
                 <th scope="row">{{ item.questionText }}</th>
               </tr>
@@ -34,7 +34,7 @@
             <nav aria-label="Page navigation example">
               <ul class="pagination text-center">
                 <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                <li v-for="(item, index) in store.pageTotal" class="page-item"><a class="page-link" href="#"
+                <li v-for="(item, index) in store.pageTotal" :key="item.id" class="page-item"><a class="page-link" href="#"
                     @click="store.selectPage(index + 1)">{{ index + 1 }}</a></li>
                 <li class="page-item"><a class="page-link" href="#">Next</a></li>
               </ul>
