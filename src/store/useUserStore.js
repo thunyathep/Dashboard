@@ -3,7 +3,7 @@ import { ref } from "vue";
 import { async } from "@firebase/util";
 import axios from "axios";
 
-export const useUserStore = defineStore("userStore", () => {
+export const useUserStore = defineStore("userStore1", () => {
     
     const storeUser = ref([])
 
@@ -21,8 +21,8 @@ export const useUserStore = defineStore("userStore", () => {
 
     const saveUsers = async () => {
         try {
-            const res = await reqInstance.get('https://jitd-backend.onrender.com/v1/users') // Data ผ่านจะถูกเก็บไว้ใน res (Response)
-            console.log(res.status)
+            const res = await reqInstance.get('https://jitd-backend.onrender.com/v1/users/') // Data ผ่านจะถูกเก็บไว้ใน res (Response)
+            console.log(res.data)
             res.data.sort((a, b) => parseInt(a.number) - parseInt(b.number))
 
             storeUser.value = res.data

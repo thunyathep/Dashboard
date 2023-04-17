@@ -1,4 +1,4 @@
-<script>
+<script setup>
   import { useUserStore } from '../store/useUserStore';
 
   import Chart from 'chart.js/auto';
@@ -7,22 +7,18 @@
   
   const userStore = useUserStore();
 
-  // onMounted(() => {
-  //   userStore.saveUsers();
-  // })
+  onMounted(() => {
+    userStore.saveUsers();
 
-  export default {
-    name: 'UserBarChart',
-    props: {
-      msg: String
-    },
-    mounted(){
-      const ctx = document.getElementById('myChart');
+    createBarChart();
+  });
 
-      new Chart(ctx, {
-        type: 'bar',
-        data: {
-          labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+  function createBarChart() {
+  const ctx = document.getElementById('myChart');
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
           datasets: [{
             label: 'Number of users',
             data: [12, 19, 3, 5, 2, 3, 20],
@@ -47,17 +43,16 @@
             borderWidth: 1,
             barThickness: 50,
           }]
-        },
-        options: {
+    },
+    options: {
           scales: {
             y: {
               beginAtZero: true
             }
           }
         }
-      });
-    }
-  };
+  });
+}
 </script>
 
 <template>
@@ -76,19 +71,25 @@
                       <thead>
                         <tr>
                           <th scope="col">Id</th>
-                          <th scope="col">First name</th>
-                          <th scope="col">Last name</th>
-                          <th scope="col">Status</th>
+                          <th scope="col">Pet Name</th>
+                          <th scope="col">Pet HP</th>
+                          <th scope="col">Point</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
+                        <tr v-for="(item, index) in userStore.userTemp" :key="index" class="m-2 test-row" @click="onClickToView(index)">
+                          <th scope="row">1</th>
+                          <th scope="row">{{ item.petName }}</th>
+                          <th scope="row">{{ item.petHP }}</th>
+                          <th scope="row">{{ item.point }}</th>
+                        </tr>
+                        <!-- <tr>
                           <th scope="row">1</th>
                           <td>Worabadin</td>
                           <td>Piammahamongkol</td>
                           <td>Online</td>
-                        </tr>
-                        <tr>
+                        </tr> -->
+                        <!-- <tr>
                           <th scope="row">2</th>
                           <td>Surawee</td>
                           <td>Kraikruan</td>
@@ -99,12 +100,12 @@
                           <td>Balloi</td>
                           <td>Loynarm</td>
                           <td>Offline</td>
-                        </tr>
+                        </tr> -->
                       </tbody>
                     </table>
               </div>
             </div>
-            <nav aria-label="Page navigation example">
+            <!-- <nav aria-label="Page navigation example">
               <ul class="pagination justify-content-center">
                 <li class="page-item disabled">
                   <a class="page-link" href="#" tabindex="-1">Previous</a>
@@ -116,7 +117,15 @@
                   <a class="page-link" href="#">Next</a>
                 </li>
               </ul>
-            </nav>
+            </nav> -->
+            <!-- <nav aria-label="Page navigation example">
+              <ul class="pagination text-center">
+                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                <li v-for="(item, index) in userStore.pageTotal" :key="index" class="page-item"><a class="page-link" href="#"
+                    @click="userStore.selectPage(index + 1)">{{ index + 1 }}</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+              </ul>
+            </nav> -->
           </div>  
         </div>    
       </div>
