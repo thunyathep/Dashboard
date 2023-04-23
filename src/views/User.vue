@@ -106,7 +106,6 @@
 </template>
 
 <style>
-
   .card-body{
     align-content: center;
   }
@@ -127,4 +126,3 @@
     margin-right: auto;
   }
 </style>
-  

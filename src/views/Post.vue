@@ -57,129 +57,67 @@
                 aria-labelledby="pills-home-tab"
               >
                 <div class="row">
-                  <div class="col-sm-6 my-3 pt-3 test-1">
-                    <div class="card-body">
-                      <h5 class="card-title">จำนวนการโพสต์ของปี 2565</h5>
-                      <Bar
-                        id="my-chart-id"
-                        :options="chartOptions"
-                        :data="chartData"
-                      />
-                    </div>
-                  </div>
-                  <div class="col-sm-6 my-3 pt-3 test-2">
+                  <div class="card-body">
                     <table class="table table-bordered">
                       <thead>
                         <tr>
-                          <th scope="col">ลำดับที่</th>
-                          <th scope="col">ชื่อ</th>
-                          <th scope="col">นามสกุล</th>
-                          <th scope="col">ข้อความที่โพสต์</th>
+                          <th>ID</th>
+                          <th>ประเภท</th>
+                          <th>ข้อความที่โพสต์</th>
+                          <th>วันที่</th>
+                          <th>การจัดการ</th>
                         </tr>
                       </thead>
-                      <tbody>
-                        <tr>
-                          <th scope="row">1</th>
-                          <td>กระต่ายน้อย</td>
-                        <td>สุขใจในโลกอับเฉา</td>
-                        <td>คุณสามารถมีความสุขได้ด้วยตีวคุณเองนะ</td>
+                      <tbody v-if="PostStore.postTemp.length > 0">
+                        <tr v-for="(item, index) in PostStore.postTemp" :key="index">
+                          <td>{{ item.postId }}</td>
+                          <td>{{ item.category }}</td>
+                          <td>{{ item.content }}</td>
+                          <td>{{ item.date }}</td>
+                          <td>
+                            <button @click="clickTosave(content, category, dat)" type="button" class="btn btn-primary">
+                              Edit
+                            </button>
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel">แก้ไขข้อความ</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                              <div class="modal-body">
+                                  ...
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button @click="PostStore.fetchEdit()" type="button" class="btn btn-primary">Save changes</button>
+                              </div>
+                              </div>
+                              </div>
+                              </div>
+                            <td>
+                              <button @click="PostStore.deleteItem(item.postId)" class="btn btn-danger">Delete</button></td>
+                          </td>
                         </tr>
+                      </tbody>
+                      <tbody v-else>
                         <tr>
-                          <th scope="row">2</th>
-                          <td>พระอาทิตย์</td>
-                        <td>ที่รักพระจันทร์</td>
-                        <td>ความรักนั้นคาดเดาได้ยากจริงๆครับ รักตัวเองมากๆ</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">3</th>
-                          <td colspan="2">คุณความสุข</td>
-                        <td>ลาออกเลยครับ ออกมาเจอโลกที่กว้างใหญ่อีกครั้ง</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">4</th>
-                          <td colspan="2">อนาคตของคุณหญ้า</td>
-                        <td>ศุ้ๆนะครับ อาจจะยากหน่อย แต่เวลาจะช่วยคุณอง</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">4</th>
-                          <td colspan="2">ไม่อยากรับรู้</td>
-                        <td>ลองไปเที่ยวที่เงียบๆดูไหมครับ เผื่อจะอารมณ์ดีขึ้น</td>
+                          <td colspan="4" class="text-center">กำลังดาวน์โหลด...</td>
                         </tr>
                       </tbody>
                     </table>
                   </div>
+
                   <div class="col-sm-4 pt-3 test-3">
-                    <h5 class="card-title">การโพสต์ข้อความล่าสุด</h5>
-                    <div class="list-group">
-                      <a
-                        href="#"
-                        class="list-group-item list-group-item-action flex-column align-items-start active"
-                      >
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">
-                            ตุ๊กตาหมูแสนน่ารักที่รักเธอคนเดียว
-                          </h5>
-                          <small>1 days ago</small>
-                        </div>
-
-                        <small>ถ้าเธอรักเขา ให้ฉันเป็นที่ปรึกษาได้ไหม</small>
-                      </a>
-                      <a
-                        href="#"
-                        class="list-group-item list-group-item-action flex-column align-items-start"
-                      >
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">พระอาทิตย์ของน้องปักเป้า</h5>
-                          <small class="text-muted">1 days ago</small>
-                        </div>
-
-                        <small class="text-muted"
-                          >พระอาทิตย์เขาตั้งใจทำงานขนาดนั้น
-                          จะไปแย่งโลกมาหมุนรอบตัวเองทำไมอ่ะเตง</small
-                        >
-                      </a>
-                      <a
-                        href="#"
-                        class="list-group-item list-group-item-action flex-column align-items-start"
-                      >
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">การทำงานของโคอาร่า</h5>
-                          <small class="text-muted">2 days ago</small>
-                        </div>
-                        <small class="text-muted"
-                          >บางทีงานก็ทำต้วเองก็ได้นะ
-                          อย่ามาใก้เราทำเยอะขนาดนั้น</small
-                        >
-                      </a>
-                      <a
-                        href="#"
-                        class="list-group-item list-group-item-action flex-column align-items-start"
-                      >
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">ครอบครัวของน้องแพนกวิ้น</h5>
-                          <small class="text-muted">2 days ago</small>
-                        </div>
-
-                        <small class="text-muted"
-                          >ครอบครับที่ดีคือครอบครัวที่รักเรามากๆไม่ใช่หรอคะ
-                          ถ้าเขาไม่รักเราจะเป็นครอบครัวได้ยังไงกัน</small
-                        >
-                      </a>
-                      <a
-                        href="#"
-                        class="list-group-item list-group-item-action flex-column align-items-start"
-                      >
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">ผี้เสื้อใจร้ายของนายรักเดียว</h5>
-                          <small class="text-muted">3 days ago</small>
-                        </div>
-
-                        <small class="text-muted"
-                          >เอาแค่มาเอาน้ำหวานจากผม
-                          เพื่อที่จะได้มีชีวิตไปหาคนนั้น
-                          ผมอยากเลอกชอบเขาแล้วครับ ฮืออ</small
-                        >
-                      </a>
+                    <div class="col-sm-3 my-3 pt-3 test-1">
+                      <div class="card-body">
+                        <h5 class="card-title">จำนวนการโพสต์ของปี 2565</h5>
+                        <Bar
+                          id="my-chart-id"
+                          :options="chartOptions"
+                          :data="chartData"
+                        />
+                      </div>
                     </div>
                   </div>
                   <div class="col-sm-4 pt-3 test-3">
@@ -267,7 +205,7 @@
                 role="tabpanel"
                 aria-labelledby="pills-profile-tab"
               >
-              <div class="row">
+                <div class="row">
                   <div class="col-sm-6 my-3 pt-3 test-1">
                     <div class="card-body">
                       <h5 class="card-title">จำนวนการโพสต์ของปี 2565</h5>
@@ -292,29 +230,33 @@
                         <tr>
                           <th scope="row">1</th>
                           <td>กระต่ายน้อย</td>
-                        <td>สุขใจในโลกอับเฉา</td>
-                        <td>คุณสามารถมีความสุขได้ด้วยตีวคุณเองนะ</td>
+                          <td>สุขใจในโลกอับเฉา</td>
+                          <td>คุณสามารถมีความสุขได้ด้วยตีวคุณเองนะ</td>
                         </tr>
                         <tr>
                           <th scope="row">2</th>
                           <td>พระอาทิตย์</td>
-                        <td>ที่รักพระจันทร์</td>
-                        <td>ความรักนั้นคาดเดาได้ยากจริงๆครับ รักตัวเองมากๆ</td>
+                          <td>ที่รักพระจันทร์</td>
+                          <td>
+                            ความรักนั้นคาดเดาได้ยากจริงๆครับ รักตัวเองมากๆ
+                          </td>
                         </tr>
                         <tr>
                           <th scope="row">3</th>
                           <td colspan="2">คุณความสุข</td>
-                        <td>ลาออกเลยครับ ออกมาเจอโลกที่กว้างใหญ่อีกครั้ง</td>
+                          <td>ลาออกเลยครับ ออกมาเจอโลกที่กว้างใหญ่อีกครั้ง</td>
                         </tr>
                         <tr>
                           <th scope="row">4</th>
                           <td colspan="2">อนาคตของคุณหญ้า</td>
-                        <td>ศุ้ๆนะครับ อาจจะยากหน่อย แต่เวลาจะช่วยคุณอง</td>
+                          <td>ศุ้ๆนะครับ อาจจะยากหน่อย แต่เวลาจะช่วยคุณอง</td>
                         </tr>
                         <tr>
                           <th scope="row">4</th>
                           <td colspan="2">ไม่อยากรับรู้</td>
-                        <td>ลองไปเที่ยวที่เงียบๆดูไหมครับ เผื่อจะอารมณ์ดีขึ้น</td>
+                          <td>
+                            ลองไปเที่ยวที่เงียบๆดูไหมครับ เผื่อจะอารมณ์ดีขึ้น
+                          </td>
                         </tr>
                       </tbody>
                     </table>
@@ -478,7 +420,7 @@
                 role="tabpanel"
                 aria-labelledby="pills-contact-tab"
               >
-              <div class="row">
+                <div class="row">
                   <div class="col-sm-6 my-3 pt-3 test-1">
                     <div class="card-body">
                       <h5 class="card-title">จำนวนการโพสต์ของปี 2565</h5>
@@ -503,29 +445,33 @@
                         <tr>
                           <th scope="row">1</th>
                           <td>กระต่ายน้อย</td>
-                        <td>สุขใจในโลกอับเฉา</td>
-                        <td>คุณสามารถมีความสุขได้ด้วยตีวคุณเองนะ</td>
+                          <td>สุขใจในโลกอับเฉา</td>
+                          <td>คุณสามารถมีความสุขได้ด้วยตีวคุณเองนะ</td>
                         </tr>
                         <tr>
                           <th scope="row">2</th>
                           <td>พระอาทิตย์</td>
-                        <td>ที่รักพระจันทร์</td>
-                        <td>ความรักนั้นคาดเดาได้ยากจริงๆครับ รักตัวเองมากๆ</td>
+                          <td>ที่รักพระจันทร์</td>
+                          <td>
+                            ความรักนั้นคาดเดาได้ยากจริงๆครับ รักตัวเองมากๆ
+                          </td>
                         </tr>
                         <tr>
                           <th scope="row">3</th>
                           <td colspan="2">คุณความสุข</td>
-                        <td>ลาออกเลยครับ ออกมาเจอโลกที่กว้างใหญ่อีกครั้ง</td>
+                          <td>ลาออกเลยครับ ออกมาเจอโลกที่กว้างใหญ่อีกครั้ง</td>
                         </tr>
                         <tr>
                           <th scope="row">4</th>
                           <td colspan="2">อนาคตของคุณหญ้า</td>
-                        <td>ศุ้ๆนะครับ อาจจะยากหน่อย แต่เวลาจะช่วยคุณอง</td>
+                          <td>ศุ้ๆนะครับ อาจจะยากหน่อย แต่เวลาจะช่วยคุณอง</td>
                         </tr>
                         <tr>
                           <th scope="row">4</th>
                           <td colspan="2">ไม่อยากรับรู้</td>
-                        <td>ลองไปเที่ยวที่เงียบๆดูไหมครับ เผื่อจะอารมณ์ดีขึ้น</td>
+                          <td>
+                            ลองไปเที่ยวที่เงียบๆดูไหมครับ เผื่อจะอารมณ์ดีขึ้น
+                          </td>
                         </tr>
                       </tbody>
                     </table>
@@ -704,93 +650,19 @@
   </main>
 </template>
 
-<script>
-import Chart from "chart.js/auto";
-import {
-  Chart as ChartJS,
-  Title,
-  Tooltip,
-  Legend,
-  BarElement,
-  CategoryScale,
-  LinearScale,
-} from "chart.js";
-ChartJS.register(
-  Title,
-  Tooltip,
-  Legend,
-  BarElement,
-  CategoryScale,
-  LinearScale
-);
-import { Bar } from "vue-chartjs";
-import { reactive } from "vue";
+<script setup>
+import { onMounted } from "vue";
+import { usePost } from "../store/usePost";
 
-export default {
-  name: "PieChart",
-  props: {
-    msg: String,
-  },
-  mounted() {
-    console.log("Component mounted.");
+const PostStore = usePost();
 
-    const ctx = document.getElementById("myChart");
 
-    const data = {
-      labels: ["การงาน", "การเงิน", "ความรัก", "ครอบครัว", "ชีวิต"],
-      datasets: [
-        {
-          label: "My First Dataset",
-          data: [300, 50, 100, 200, 150],
-          backgroundColor: [
-            "rgb(255, 99, 132)",
-            "rgb(54, 162, 235)",
-            "rgb(255, 205, 86)",
-            "rgb(102, 102, 255)",
-            "rgb(153, 102, 255)",
-          ],
-          hoverOffset: 4,
-        },
-      ],
-    };
 
-    const myChart = new Chart(ctx, {
-      type: "doughnut",
-      data: data,
-    });
+onMounted(() => {
+  PostStore.fetchPosts();
+  // PostStore.fetchEdit();
+});
 
-    myChart;
-  },
-  components: { Bar },
-  setup() {
-    const chartData = reactive({
-      labels: [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December",
-      ],
-      datasets: [{ data: [10, 15, 12, 18, 20, 25, 32, 28, 20, 30, 42, 50] }],
-    });
-
-    const chartOptions = reactive({
-      responsive: true,
-    });
-
-    return {
-      chartData,
-      chartOptions,
-    };
-  },
-};
 </script>
 
 <style>
@@ -831,8 +703,10 @@ export default {
   border: 1px solid #d3d3d3;
   border-radius: 5px;
   padding: 20px;
-  display: flex;
   justify-content: center;
   align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 </style>

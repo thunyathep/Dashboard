@@ -22,10 +22,15 @@
                 <th scope="col" class="col-4">question</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody v-if="store.testTemp.length > 0">
               <tr v-for="(item, index) in store.testTemp" class="m-2 test-row" @click="onClickToView(index)">
                 <th scope="row">{{ item.number }}</th>
                 <th scope="row">{{ item.questionText }}</th>
+              </tr>
+            </tbody>
+            <tbody v-else>
+              <tr>
+                <td colspan="2" class="text-center">กำลังดาวน์โหลด...</td>
               </tr>
             </tbody>
           </table>
