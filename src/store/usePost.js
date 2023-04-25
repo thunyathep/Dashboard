@@ -81,21 +81,24 @@ export const usePost = defineStore("usePost", () => {
   // };
 
 
-  const fetchEdit = async ( postId,content, category, date) => {
+  const fetchEdit = async (postId,content, category, date) => {
     console.log(postId,content, category, date);
+
       const seedData = {
         "content": content,
-        "category": category,
+        "category": [],
         "date": date,
       };
-      console.log(seedData);
       try {
       const res = await
-      
+  
       reqInstance
-        .put(`https://jitd-backend.onrender.com/v1/posts/${postId}}`, seedData)
+        .put(`https://jitd-backend.onrender.com/v1/posts/${postId}`, seedData)
+        
         .then((res) => {
           console.log(res.data);
+          console.log(res.status);
+
         });
     } catch (error) {
       alert(error);
