@@ -2,6 +2,7 @@ import { defineStore } from "pinia";
 import { ref } from "vue";
 import { async } from "@firebase/util";
 import axios from "axios";
+import { Bar } from "vue-chartjs";
 
 export const usePost = defineStore("usePost", () => {
   const postStore = ref([]);
@@ -10,7 +11,7 @@ export const usePost = defineStore("usePost", () => {
   const pageTotal = ref(0);
   const indexStart = ref(0);
   const indexEnd = ref(0);
-
+  
   // axios instance
   let reqInstance = axios.create({
     headers: {
@@ -48,15 +49,51 @@ export const usePost = defineStore("usePost", () => {
       console.log(error);
     }
   };
-  const fetchEdit = async (content, category, date) => {
-    try {
+
+  // const fetchdata = async () =>{
+  //   extends: Bar,
+  //   data: () => ({
+  //     chartData: null,
+  //   }),
+  //   mounted() {
+  //   try {
+  //     const response = await 
+  //     reqInstance.get("https://jitd-backend.onrender.com/v1/posts/");
+  //     this.chartData = response.data;
+
+  //     this.renderChart(
+  //       {
+  //         labels: this.chartData.map(item => item.label),
+  //         datasets: [
+  //           {
+  //             label: "My Data",
+  //             backgroundColor: "#f87979",
+  //             data: this.chartData.map(item => item.value)
+  //           }
+  //         ]
+  //       },
+  //       { responsive: true, maintainAspectRatio: false }
+  //     );
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // },
+  // };
+
+
+  const fetchEdit = async ( postId,content, category, date) => {
+    console.log(postId,content, category, date);
       const seedData = {
         "content": content,
         "category": category,
         "date": date,
-      }
+      };
+      console.log(seedData);
+      try {
+      const res = await
+      
       reqInstance
-        .put(`https://jitd-backend.onrender.com/v1/posts/${postId}}`)
+        .put(`https://jitd-backend.onrender.com/v1/posts/${postId}}`, seedData)
         .then((res) => {
           console.log(res.data);
         });

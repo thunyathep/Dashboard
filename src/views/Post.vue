@@ -75,26 +75,42 @@
                           <td>{{ item.content }}</td>
                           <td>{{ item.date }}</td>
                           <td>
-                            <button @click="clickTosave(content, category, dat)" type="button" class="btn btn-primary">
+                            <div @click="clickTosave(item.postId, item.content, item.category, item.date)">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
                               Edit
-                            </button>
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                              <div class="modal-dialog">
+                            </button></div>
+                              <!-- The Modal -->
+                            <div class="modal" id="myModal">
+                              <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
-                                <div class="modal-header">
-                                  <h5 class="modal-title" id="exampleModalLabel">แก้ไขข้อความ</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                              <div class="modal-body">
-                                  ...
-                              </div>
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button @click="PostStore.fetchEdit()" type="button" class="btn btn-primary">Save changes</button>
-                              </div>
-                              </div>
-                              </div>
-                              </div>
+                                <!-- Modal Header -->
+                                  <div class="modal-header">
+                                    <h4 class="modal-title">change data in post</h4>
+                                      <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                  </div>
+                                <!-- Modal body -->
+                                    <div class="modal-body">
+                                      <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Category</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Category">
+                                      </div>
+                                      <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Content</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Content">
+                                      </div>
+                                      <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Date</label>
+                                        <input type="date" class="form-control" id="exampleFormControlInput1" placeholder="Date">
+                                      </div>
+                                    </div>
+                                <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                                    <button @click = "PostStore.fetchEdit(Tempcontent.value ,Tempcategory.value, Tempdate.value)" type="button" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                    </div>
+                                    </div>
+                                    </div>
                             <td>
                               <button @click="PostStore.deleteItem(item.postId)" class="btn btn-danger">Delete</button></td>
                           </td>
@@ -112,11 +128,7 @@
                     <div class="col-sm-3 my-3 pt-3 test-1">
                       <div class="card-body">
                         <h5 class="card-title">จำนวนการโพสต์ของปี 2565</h5>
-                        <Bar
-                          id="my-chart-id"
-                          :options="chartOptions"
-                          :data="chartData"
-                        />
+                        <canvas id="myChart"></canvas>
                       </div>
                     </div>
                   </div>
@@ -653,9 +665,19 @@
 <script setup>
 import { onMounted } from "vue";
 import { usePost } from "../store/usePost";
+import { ref } from "vue";
 
 const PostStore = usePost();
 
+const Tempcontent =  ref("")
+const Tempcategory =  ref("")
+const Tempdate =  ref("")
+
+const clickTosave = (content, category, date) => {
+  Tempcontent.value = content 
+  Tempcategory.value = category, 
+  Tempdate.value = date
+}
 
 
 onMounted(() => {
