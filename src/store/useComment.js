@@ -3,7 +3,7 @@ import { ref } from 'vue'
 import axios from 'axios'
 import { useAuthStore } from '../store/useAuthStore'
 
-export const useComment = defineStore('commentStore', () => {
+export const useComment = defineStore('useComment', () => {
 
     const commentStore = ref([])
     const commentTemp = ref([])
@@ -21,7 +21,7 @@ export const useComment = defineStore('commentStore', () => {
     // function get stress
     const fetchComments = async () => {
         try {
-            const res = await reqInstance.get('https://jitd-backend.onrender.com/v1/users')
+            const res = await reqInstance.get('https://jitd-backend.onrender.com/v1/posts/')
             // const res = await reqInstance.get('http://localhost:3000/v1/comment/')
             console.log(res.data)
             res.data.sort((a, b) => parseInt(a.number) - parseInt(b.number))

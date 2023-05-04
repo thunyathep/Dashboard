@@ -120,6 +120,22 @@ export const usePost = defineStore("usePost", () => {
           console.log(error);
         });
     }
+
+    // const Datashow = () => {
+    //   const data = {
+    //     labels: ["January", "February", "March", "April", "May", "June", "July"],
+    //     datasets: [
+    //       {
+    //         label: "Data One",
+    //         backgroundColor: "#f87979",
+    //         data: [40, 39, 10, 40, 39, 80, 40],
+    //       },
+    //     ],
+    //   };
+    //   return {
+    //     data,
+    //   };
+    // };
   };
   return {
     fetchPosts,
@@ -129,5 +145,8 @@ export const usePost = defineStore("usePost", () => {
     pageTotal,
     deleteItem,
     fetchEdit,
+    indexStart,
+    indexEnd,
+    // Datashow,
   };
 });
