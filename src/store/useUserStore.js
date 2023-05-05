@@ -4,7 +4,7 @@ import { async } from "@firebase/util";
 import axios from "axios";
 
 export const useUserStore = defineStore("userStore1", () => {
-    
+
     const storeUser = ref([])
 
     const userTemp = ref([])
@@ -15,7 +15,7 @@ export const useUserStore = defineStore("userStore1", () => {
 
     let reqInstance = axios.create({
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('TOKEN')}`
+            Authorization: `Bearer ${localStorage.getItem('TOKEN')}`
         }
     })
 
@@ -31,7 +31,7 @@ export const useUserStore = defineStore("userStore1", () => {
             indexStart.value = 0
             indexEnd.value = storeUser.value.length
 
-            // assign pageination 
+            // assign pageination
             userTemp.value = storeUser.value.slice(0, (pageNumber.value * 10))
         }
         catch (error) {
@@ -40,13 +40,27 @@ export const useUserStore = defineStore("userStore1", () => {
         }
     }
 
-    const selectPage = (number) => {
-        pageNumber.value = number
-        indexStart.value = ((number - 1) * 10) 
-        indexEnd.value = (number * 10 ) 
-        userTemp.value = storeUser.value.slice(indexStart.value, indexEnd.value)
-    
+    const deleteUsers = (userID) => {
+        if (confirm("Are you sure na ?")) {
+            console.log(userID);
+            reqInstance.delete('https://jitd-backend.onrender.com/v1/users/${userID}/').then((res) => {
+                alert(res.data.message);
+                this.userStore.saveUsers();
+                console.log(res.status);
+            })
+                .catch(function (error) {
+                    console.log(error);
+                })
+        }
     }
 
-    return { storeUser, saveUsers, userTemp, pageTotal, pageNumber, indexStart, selectPage }
+    const selectPage = (number) => {
+        pageNumber.value = number
+        indexStart.value = ((number - 1) * 10)
+        indexEnd.value = (number * 10)
+        userTemp.value = storeUser.value.slice(indexStart.value, indexEnd.value)
+
+    }
+
+    return { storeUser, saveUsers, userTemp, pageTotal, pageNumber, indexStart, selectPage, deleteUsers }
 })
