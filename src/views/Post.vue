@@ -26,7 +26,8 @@
             </div>
           </stats-card>
         </div>
-
+        <div>
+        </div>
         <div class="col-xl-3 col-md-6">
           <stats-card>
             <div slot="header" class="icon-success">
@@ -38,10 +39,10 @@
                 <th>จำนวนข้อความที่โพสต์</th>
               </tr>
               <tbody v-if="PostStore.postTemp.length > 0">
-                <tr v-for="(item, index) in PostStore.postTemp" :key="index">
+                <!-- <tr v-for="(item, index) in PostStore.postTemp" :key="index"> -->
                   <td>{{ PostStore.postTemp.reduce((total1, item) => total1 + item.content.split(/[.?!]+/).length, 0) }}</td>
                   <!-- <td>{{ item.content.length }}</td> -->
-                </tr>
+                <!-- </tr> -->
               </tbody>
             </div>
             <div slot="footer">
@@ -49,23 +50,121 @@
             </div>
           </stats-card>
         </div>
-        <div class="col-xl-3 col-md-6">
+        <div class="col-xl-3 col-md-6"> 
           <stats-card>
             <div slot="header" class="icon-info">
               <i class="nc-icon nc-favourite-28 text-primary"></i>
             </div>
             <div slot="content">
-              <!-- <p class="card-category">Capacity</p> -->
               <tr>
-                <th>จำนวนผู้ใช้งาน</th>
+                <th>การงาน</th>
               </tr>
               <tr>
               </tr>
-              <tbody v-if="PostStore.postTemp.length > 0">
-                <tr v-for="(item, index) in PostStore.postTemp" :key="index">
-                <td> {{ item.postId.length }}</td>
-                <!-- <td> {{ item.filterCategoryWork(allPost) }}</td> -->
-                </tr>
+              <tbody >
+                <td>{{ PostStore.postTemp.reduce((total2, post) => total2 + post.category.includes("การงาน",0), 0) }}</td>
+              </tbody>
+            </div>
+          </stats-card>
+        </div>
+                <div class="col-xl-3 col-md-6"> 
+          <stats-card>
+            <div slot="header" class="icon-info">
+              <i class="nc-icon nc-favourite-28 text-primary"></i>
+            </div>
+            <div slot="content">
+              <tr>
+                <th>การเรียน</th>
+              </tr>
+              <tr>
+              </tr>
+              <tbody >
+                <td>{{ PostStore.postTemp.reduce((total3, post) => total3 + post.category.includes("การเรียน",0), 0) }}</td>
+              </tbody>
+            </div>
+          </stats-card>
+        </div>
+        <div class="col-xl-3 col-md-6"> 
+          <stats-card>
+            <div slot="header" class="icon-info">
+              <i class="nc-icon nc-favourite-28 text-primary"></i>
+            </div>
+            <div slot="content">
+              <tr>
+                <th>สุขภาพจิต</th>
+              </tr>
+              <tr>
+              </tr>
+              <tbody >
+                <td>{{ PostStore.postTemp.reduce((total4, post) => total4 + post.category.includes("สุขภาพจิต",0), 0) }}</td>
+              </tbody>
+            </div>
+          </stats-card>
+        </div>
+        <div class="col-xl-3 col-md-6"> 
+          <stats-card>
+            <div slot="header" class="icon-info">
+              <i class="nc-icon nc-favourite-28 text-primary"></i>
+            </div>
+            <div slot="content">
+              <tr>
+                <th>ปัญหาชีวิต</th>
+              </tr>
+              <tr>
+              </tr>
+              <tbody >
+                <td>{{ PostStore.postTemp.reduce((total5, post) => total5 + post.category.includes("ปัญหาชีวิต",0), 0) }}</td>
+              </tbody>
+            </div>
+          </stats-card>
+        </div>
+        <div class="col-xl-3 col-md-6"> 
+          <stats-card>
+            <div slot="header" class="icon-info">
+              <i class="nc-icon nc-favourite-28 text-primary"></i>
+            </div>
+            <div slot="content">
+              <tr>
+                <th>ความสัมพันธ์</th>
+              </tr>
+              <tr>
+              </tr>
+              <tbody >
+                <td>{{ PostStore.postTemp.reduce((total6, post) => total6 + post.category.includes("ความสัมพันธ์",0), 0) }}</td>
+              </tbody>
+            </div>
+          </stats-card>
+        </div>
+        <div class="col-xl-3 col-md-6"> 
+          <stats-card>
+            <div slot="header" class="icon-info">
+              <i class="nc-icon nc-favourite-28 text-primary"></i>
+            </div>
+            <div slot="content">
+              <tr>
+                <th>สุขภาพร่างกาย</th>
+              </tr>
+              <tr>
+              </tr>
+              <tbody >
+                <td>{{ PostStore.postTemp.reduce((total7, post) => total7 + post.category.includes("สุขภาพร่างกาย",0), 0) }}</td>
+              </tbody>
+            </div>
+          </stats-card>
+        </div>
+        <div class="col-xl-3 col-md-6"> 
+          <stats-card>
+            <div slot="header" class="icon-info">
+              <i class="nc-icon nc-favourite-28 text-primary"></i>
+            </div>
+            <div slot="content">
+              <tr>
+                <th>ครอบครัว</th>
+              </tr>
+              <tr>
+              </tr>
+              <tbody >
+                <td>{{ PostStore.postTemp.reduce((total8, post) => total8 + post.category.includes("ครอบครัว",0), 0) }}</td>
               </tbody>
             </div>
             <div slot="footer">
@@ -74,10 +173,6 @@
           </stats-card>
         </div>
         <div>
-    <!-- <div v-for="post in posts" :key="post.id">
-      <h2>{{ post.title }}</h2>
-      <p>{{ post.content }}</p>
-    </div> -->
   </div>
       </div>
             <div class="tab-content" id="pills-tabContent">
@@ -301,15 +396,13 @@ const clickTosave = (postId, content, category, date) => {
   Tempcategory.value = category,
   Tempdate.value = date
 
-
 }
 
 
 onMounted(() => {
 
   PostStore.fetchPosts();
-  // const allPosts = []; // Replace with your actual list of posts
-  // this.posts = filterCategoryWork(allPosts);
+  // PostStore.filterCategoryWork();
 });
 
 </script>

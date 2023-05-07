@@ -11,7 +11,30 @@ export const usePost = defineStore("usePost", () => {
   const pageTotal = ref(0);
   const indexStart = ref(0);
   const indexEnd = ref(0);
+
+  const countCategoryStudy = ref([]);
+  const countCategoryWork = ref([]);
   
+  let allPost = ref([]);
+  let typeWork = ref([]);
+  let typeStudy = ref([]);
+  let typeSoul = ref([]);
+  let typeLife = ref([]);
+  let typeRelationship = ref([]);
+  let typeBody = ref([]);
+  let typeFamily = ref([]);
+
+  const countCategoryExercise = ref();
+  const countCategorySleep = ref();
+  const countCategoryOther = ref([]);
+
+  // const filterCategoryWork = (allPosts) => {
+  //   return allPosts.filter((post) => post.category.includes("การทำงาน"));
+  // };
+  // const filterCategoryStudy = (allPost) => {
+  //   return allPost.filter((post) => post.category.includes("การเรียน"));
+  // };
+
   // axios instance
   let reqInstance = axios.create({
     headers: {
@@ -20,15 +43,35 @@ export const usePost = defineStore("usePost", () => {
   });
 
   // function get stress
+  const filterCategoryWork=()=>{
+    typeWork = allPost.filter((post)=>post.category.includes("การงาน"))
+    typeStudy = allPost.filter((post)=>post.category.includes("การเรียน"))
+    typeSoul = allPost.filter((post)=>post.category.includes("สุขภาพจิต"))
+    typeLife = allPost.filter((post)=>post.category.includes("ปัญหาชีวิต"))
+    typeRelationship = allPost.filter((post)=>post.category.includes("ความสัมพันธ์"))
+    typeBody = allPost.filter((post)=>post.category.includes("สุขภาพร่างกาย"))
+    typeFamily = allPost.filter((post)=>post.category.includes("ครอบครัว"))
+   }
+  
   const fetchPosts = async () => {
     try {
       // const res = await reqInstance.get('https://jitd-backend.onrender.com/v1//posts/')
       const res = await reqInstance.get(
         "https://jitd-backend.onrender.com/v1/posts/"
       );
+      allPost = res.data;
+      console.log("*******",typeWork)
+      console.log("*******",typeStudy)
+      console.log("*******",typeSoul)
+      console.log("*******",typeLife)
+      console.log("*******",typeRelationship)
+      console.log("*******",typeBody)
+      console.log("*******",typeFamily)
+      
+      filterCategoryWork();
       // const res = await reqInstance.get('http://localhost:3000/v1/test/stress/')
       console.log("=====================================================");
-      console.log(res.data);
+      console.log(allPost);
       console.log(res.status);
       console.log("=====================================================");
       // res.data.sort((a, b) => parseInt(a.number) - parseInt(b.number));
@@ -43,62 +86,28 @@ export const usePost = defineStore("usePost", () => {
       // assign pageination
       postTemp.value = postStore.value.slice(0, pageNumber.value * 10);
 
-      console.log(postTemp.value);
+      // console.log(postTemp.value);
     } catch (error) {
       alert(error);
       console.log(error);
     }
   };
 
-  // const fetchdata = async () =>{
-  //   extends: Bar,
-  //   data: () => ({
-  //     chartData: null,
-  //   }),
-  //   mounted() {
-  //   try {
-  //     const response = await 
-  //     reqInstance.get("https://jitd-backend.onrender.com/v1/posts/");
-  //     this.chartData = response.data;
+  const fetchEdit = async (postId, content, category, date) => {
+    console.log(postId, content, category, date);
 
-  //     this.renderChart(
-  //       {
-  //         labels: this.chartData.map(item => item.label),
-  //         datasets: [
-  //           {
-  //             label: "My Data",
-  //             backgroundColor: "#f87979",
-  //             data: this.chartData.map(item => item.value)
-  //           }
-  //         ]
-  //       },
-  //       { responsive: true, maintainAspectRatio: false }
-  //     );
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // },
-  // };
-
-
-  const fetchEdit = async (postId,content, category, date) => {
-    console.log(postId,content, category, date);
-
-      const seedData = {
-        "content": content,
-        "category": [],
-        "date": date,
-      };
-      try {
-      const res = await
-  
-      reqInstance
+    const seedData = {
+      content: content,
+      category: [],
+      date: date,
+    };
+    try {
+      const res = await reqInstance
         .put(`https://jitd-backend.onrender.com/v1/posts/${postId}`, seedData)
-        
+
         .then((res) => {
           console.log(res.data);
           console.log(res.status);
-
         });
     } catch (error) {
       alert(error);
@@ -120,6 +129,7 @@ export const usePost = defineStore("usePost", () => {
           console.log(error);
         });
     }
+    
 
     // const Datashow = () => {
     //   const data = {
@@ -147,6 +157,18 @@ export const usePost = defineStore("usePost", () => {
     fetchEdit,
     indexStart,
     indexEnd,
+    // countCategoryStudy,
+    // countCategoryWork,
+    // filterCategoryStudy,
+    filterCategoryWork,
+    typeWork,
+    typeStudy,
+    typeSoul,
+    typeLife,
+    typeRelationship,
+    typeBody,
+    typeFamily,
+    // allPost,
     // Datashow,
   };
 });
