@@ -1,52 +1,62 @@
-<script setup>
+<script>
   import { useUserStore } from '../store/useUserStore';
-
   import Chart from 'chart.js/auto';
-
-  import { ref, onMounted } from 'vue';
-
+  import { ref, onMounted, computed } from 'vue';
+  import { defineComponent } from "vue";
   import '@fortawesome/fontawesome-free/css/all.css'
 
   // import { ref } from 'vue';
   
-  const userStore = useUserStore();
+  export default defineComponent({
+  setup() {
+    const userStore = useUserStore();
 
-  onMounted(() => {
-    userStore.saveUsers();
+    const chartData = computed(() => {
+      const userCounts = userStore.countUsersByMonth();
+      const labels = Object.keys(userCounts);
+      const data = Object.values(userCounts);
 
-    createChart();
-  });
+      return {
+        labels,
+        datasets: [
+          {
+            label: "Registered Users",
+            data,
+            backgroundColor: "rgba(255, 99, 132, 0.2)",
+            borderColor: "rgba(255, 99, 132, 1)",
+            borderWidth: 1,
+          },
+        ],
+      };
+    });
 
-  const chartData = ref(null);
+    onMounted(() => {
+      
+      const ctx = this.$refs.chart.getContext("2d");
 
-  const createChart = () => {
-  const usersByMonth = userStore.countUsersByMonth();
-  const labels = Object.keys(usersByMonth);
-  const data = Object.values(usersByMonth);
+      new Chart(ctx, {
+        type: "bar",
+        data: chartData.value,
+        options: {
+          scales: {
+            yAxes: [
+              {
+                ticks: {
+                  beginAtZero: true,
+                  precision: 0,
+                },
+              },
+            ],
+          },
+        },
+      });
+    });
 
-  const chartConfig = {
-    type: 'bar',
-    data: {
-      labels,
-      datasets: [{
-        label: 'Registered Users by Month',
-        data,
-        backgroundColor: 'rgba(54, 162, 235, 0.2)',
-        borderColor: 'rgba(54, 162, 235, 1)',
-        borderWidth: 1
-      }]
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
-        }
-      }
-    }
-  };
-
-  chartData.value = new Chart($refs.chart, chartConfig);
-}
+    return {
+      chartData,
+    };
+  },
+});
 </script>
 
 <template>
@@ -109,7 +119,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr v-for="(item, index) in userStore.userTemp" :key="index" class="m-2 test-row" @click="onClickToView(index)">
+                      <tr v-for="(item, index) in UserTemp" :key="index" class="m-2 test-row" @click="onClickToView(index)">
                         <th scope="row">{{ item.userID }}</th>
                         <th scope="row">{{ item.petName }}</th>
                         <th scope="row">{{ item.petHP }}</th>

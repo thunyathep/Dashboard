@@ -63,23 +63,22 @@ export const useUserStore = defineStore("userStore1", () => {
     }
 
     const countUsersByMonth = () => {
-        const usersByMonth = {};
+        const users = storeUser.value;
+        const userCounts = {};
       
-        storeUser.value.forEach(user => {
+        users.forEach(user => {
           const registerDate = new Date(user.RegisterDate);
-          const month = registerDate.getMonth() + 1; // add 1 to convert from 0-indexed to 1-indexed
-          const year = registerDate.getFullYear();
+          const monthYearKey = `${registerDate.getMonth() + 1}/${registerDate.getFullYear()}`;
       
-          const key = `${year}-${month}`;
-          if (key in usersByMonth) {
-            usersByMonth[key]++;
+          if (userCounts[monthYearKey]) {
+            userCounts[monthYearKey]++;
           } else {
-            usersByMonth[key] = 1;
+            userCounts[monthYearKey] = 1;
           }
         });
       
-        return usersByMonth;
-      }
+        return userCounts;
+      };
 
     return { storeUser, saveUsers, userTemp, pageTotal, pageNumber, indexStart, selectPage, deleteUsers, countUsersByMonth}
 })
