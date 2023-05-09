@@ -6,12 +6,17 @@ import axios from "axios";
 export const useUserStore = defineStore("userStore1", () => {
 
     const storeUser = ref([])
+    const userData = ref([])
 
     const userTemp = ref([])
     const pageNumber = ref(0)
     const pageTotal = ref(0)
     const indexStart = ref(0)
     const indexEnd = ref(0)
+
+    const countMonth = ref([])
+    const countMonthName = ref([])
+
 
     let reqInstance = axios.create({
         headers: {
@@ -22,8 +27,9 @@ export const useUserStore = defineStore("userStore1", () => {
     const saveUsers = async () => {
         try {
             const res = await reqInstance.get('https://jitd-backend.onrender.com/v1/users/') // Data ผ่านจะถูกเก็บไว้ใน res (Response)
-            console.log(res.data)
+            // console.log(res.data)
             res.data.sort((a, b) => parseInt(a.number) - parseInt(b.number))
+            userData.value = res.data
 
             storeUser.value = res.data
             pageTotal.value = storeUser.value.length / 10
@@ -33,6 +39,8 @@ export const useUserStore = defineStore("userStore1", () => {
 
             // assign pageination
             userTemp.value = storeUser.value.slice(0, (pageNumber.value * 10))
+
+            // console.log(userTemp.value)
         }
         catch (error) {
             alert(error)
@@ -62,23 +70,66 @@ export const useUserStore = defineStore("userStore1", () => {
 
     }
 
-    const countUsersByMonth = () => {
-        const users = storeUser.value;
-        const userCounts = {};
-      
-        users.forEach(user => {
-          const registerDate = new Date(user.RegisterDate);
-          const monthYearKey = `${registerDate.getMonth() + 1}/${registerDate.getFullYear()}`;
-      
-          if (userCounts[monthYearKey]) {
-            userCounts[monthYearKey]++;
-          } else {
-            userCounts[monthYearKey] = 1;
-          }
-        });
-      
-        return userCounts;
-      };
+    const countUsersByMonth = async () => {
+        const userCounts = [];
 
-    return { storeUser, saveUsers, userTemp, pageTotal, pageNumber, indexStart, selectPage, deleteUsers, countUsersByMonth}
+        await storeUser.value.forEach(user => {
+            const registerDate = new Date(user.registerDate);
+            const monthYearKey = `${registerDate.getMonth() + 1}`;
+
+            if (userCounts[monthYearKey]) {
+                userCounts[monthYearKey]++;
+            } else {
+                userCounts[monthYearKey] = 1;
+            }
+        });
+
+        // Extract the counts from the userCounts object into an array
+        const countsList = Object.values(userCounts);
+
+        console.log(countsList);
+
+        // Return the list of counts
+         countMonth.value = countsList
+    };
+
+    const countUsersByMonthName =  async () => {
+        const users = storeUser.value;
+        const userCounts = [];
+
+        await storeUser.value.forEach(user => {
+            const registerDate = new Date(user.registerDate);
+            const monthYearKey = registerDate.toLocaleString('default', { month: 'long' });
+
+            if (userCounts[monthYearKey]) {
+                userCounts[monthYearKey]++;
+            } else {
+                userCounts[monthYearKey] = 1;
+            }
+        });
+
+        // Extract the month names from the userCounts object into an array
+        const monthList = Object.keys(userCounts);
+
+        console.log(monthList);
+
+        // Return the list of month names
+        countMonthName.value = monthList
+    };
+
+
+
+
+
+    const fetchMonth = () => {
+        // TODO: fetch user and map data 
+        console.log("=====================")
+        // use
+        console.log(userStore.storeUser.values.toString)
+        console.log("=====================")
+        // const 
+        return [30, 40, 60, 70, 5]
+    }
+
+    return { userData, storeUser, saveUsers, userTemp, pageTotal, pageNumber, indexStart, selectPage, deleteUsers, countUsersByMonth, countUsersByMonthName, countMonth, countMonthName}
 })

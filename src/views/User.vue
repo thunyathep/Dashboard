@@ -1,60 +1,45 @@
-<script>
-  import { useUserStore } from '../store/useUserStore';
-  import Chart from 'chart.js/auto';
-  import { ref, onMounted, computed } from 'vue';
-  import { defineComponent } from "vue";
-  import '@fortawesome/fontawesome-free/css/all.css'
+<script lang="ts">
+import { defineComponent, onMounted, ref} from 'vue';
+import { DoughnutChart, BarChart } from 'vue-chart-3';
+import { Chart, registerables } from "chart.js";
+import {useUserStore} from "../store/useUserStore";
 
-  // import { ref } from 'vue';
-  
-  export default defineComponent({
+Chart.register(...registerables);
+
+
+
+export default defineComponent({
+  name: 'Home',
+  components: { BarChart },
   setup() {
     const userStore = useUserStore();
-
-    const chartData = computed(() => {
-      const userCounts = userStore.countUsersByMonth();
-      const labels = Object.keys(userCounts);
-      const data = Object.values(userCounts);
-
-      return {
-        labels,
-        datasets: [
-          {
-            label: "Registered Users",
-            data,
-            backgroundColor: "rgba(255, 99, 132, 0.2)",
-            borderColor: "rgba(255, 99, 132, 1)",
-            borderWidth: 1,
-          },
-        ],
-      };
-    });
+    const usertemp = userStore.userTemp;
+    // const countMonth = ref([]);
+    // const countMonthName = ref([]);
 
     onMounted(() => {
-      
-      const ctx = this.$refs.chart.getContext("2d");
+      userStore.saveUsers();
+      userStore.countUsersByMonth();
+      userStore.countUsersByMonthName();
+    })
 
-      new Chart(ctx, {
-        type: "bar",
-        data: chartData.value,
-        options: {
-          scales: {
-            yAxes: [
-              {
-                ticks: {
-                  beginAtZero: true,
-                  precision: 0,
-                },
-              },
-            ],
-          },
+    // fetch data from store 
+
+    
+    // ! data in chart 
+    const testData = {
+      labels: userStore.countMonthName,
+      datasets: [
+        {
+          // data fetch from api 
+          // data: [30, 40, 60, 70, 5],
+          data: userStore.countMonth,
+          backgroundColor: ['#77CEFF', '#0079AF', '#123E6B', '#97B0C4', '#A5C8ED'],
         },
-      });
-    });
-
-    return {
-      chartData,
+      ],
     };
+
+    return { testData };
   },
 });
 </script>
@@ -105,7 +90,11 @@
             </div>
             <div class="col-sm-8 my-3 barchart">
               <h3>Number of new users</h3>
-              <canvas ref="chart"></canvas>
+              <!-- <canvas ref="chart"></canvas> -->
+              <!-- <canvas ref="chart" :ref="chartRef"></canvas> -->
+              <BarChart :chartData="testData" />
+
+
             </div>
             <div class="col-sm-11 my-3 table1">
               <table class="table table-bordered">
@@ -119,14 +108,14 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr v-for="(item, index) in UserTemp" :key="index" class="m-2 test-row" @click="onClickToView(index)">
+                      <!-- <tr v-for="(item, index) in  usertemp" :key="index" class="m-2 test-row" @click="onClickToView(index)">
                         <th scope="row">{{ item.userID }}</th>
                         <th scope="row">{{ item.petName }}</th>
                         <th scope="row">{{ item.petHP }}</th>
                         <th scope="row">{{ item.point }}</th>
                         <th scope="row"><button class="delete-btn" @click="userStore.deleteUsers(item.userID)">Delete</button>
                           <button class="edit-btn" @click="buttonClicked">Edit</button></th>
-                      </tr>
+                      </tr> -->
                     </tbody>
                   </table>
             </div>
