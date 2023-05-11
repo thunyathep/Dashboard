@@ -24,7 +24,7 @@ export const useUserStore = defineStore("userStore1", () => {
         }
     })
 
-    const saveUsers = async () => {
+    const fetchUsers = async () => {
         try {
             const res = await reqInstance.get('https://jitd-backend.onrender.com/v1/users/') // Data ผ่านจะถูกเก็บไว้ใน res (Response)
             // console.log(res.data)
@@ -90,10 +90,12 @@ export const useUserStore = defineStore("userStore1", () => {
         console.log(countsList);
 
         // Return the list of counts
-         countMonth.value = countsList
+        countMonth.value = countsList
+
+        return countsList
     };
 
-    const countUsersByMonthName =  async () => {
+    const countUsersByMonthName = async () => {
         const users = storeUser.value;
         const userCounts = [];
 
@@ -115,11 +117,22 @@ export const useUserStore = defineStore("userStore1", () => {
 
         // Return the list of month names
         countMonthName.value = monthList
+
+        return monthList
     };
 
-
-
-
+    // data in chart 
+    const testData = ref({
+        labels: countUsersByMonthName(),
+        datasets: [
+            {
+                // data fetch from api 
+                // data: [30, 40, 60, 70, 5],
+                data: countUsersByMonth(),
+                backgroundColor: ['#77CEFF', '#0079AF', '#123E6B', '#97B0C4', '#A5C8ED'],
+            },
+        ],
+    })
 
     const fetchMonth = () => {
         // TODO: fetch user and map data 
@@ -131,5 +144,5 @@ export const useUserStore = defineStore("userStore1", () => {
         return [30, 40, 60, 70, 5]
     }
 
-    return { userData, storeUser, saveUsers, userTemp, pageTotal, pageNumber, indexStart, selectPage, deleteUsers, countUsersByMonth, countUsersByMonthName, countMonth, countMonthName}
+    return { userData, storeUser, fetchUsers, userTemp, pageTotal, pageNumber, indexStart, selectPage, deleteUsers, countUsersByMonth, countUsersByMonthName, countMonth, countMonthName, testData }
 })

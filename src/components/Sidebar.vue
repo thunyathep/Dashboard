@@ -2,7 +2,7 @@
   <aside :class="`${is_expanded && 'is-expanded'}`">
     <div class="logo">
         <a href="/">
-            <img class="pic-logo" src="../assets/github.png" alt="Vue">
+            <h2 class="jit-D">JIT :D</h2>
         </a>
     </div>
 
@@ -24,18 +24,18 @@
             <span class="material-icons">post_add</span>
             <span class="text">Post</span>
         </router-link>
-        <router-link class="button" to="/comment">
+        <!-- <router-link class="button" to="/comment">
             <span class="material-icons">forum</span>
             <span class="text">Comment</span>
-        </router-link>
+        </router-link> -->
         <router-link class="button" to="/dailyquest">
             <span class="material-icons">request_page</span>
             <span class="text">Daily Quest</span>
         </router-link>
-        <router-link class="button" to="/report">
+        <!-- <router-link class="button" to="/report">
             <span class="material-icons">report_page</span>
             <span class="text">Report</span>
-        </router-link>
+        </router-link> -->
     </div>
 
     <div class="flex"></div>
@@ -177,6 +177,16 @@ const is_expanded = ref(localStorage.getItem("is_expanded") === "true")
                     margin-right: 1rem;
                 }
             }
+        }
+
+        a {
+            color: rgb(239, 244, 244);
+            text-decoration: none;
+            
+        }
+
+        .jit-D{
+            margin: 0rem 0.5px;
         }
 
         @media(max-width: 768px){
