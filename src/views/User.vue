@@ -11,9 +11,10 @@ Chart.register(...registerables);
 export default defineComponent({
   name: 'Home',
   components: { BarChart },
+
+  // *setup data
   setup() {
     const userStore = useUserStore();
-    const usertemp = userStore.userTemp;
     // const countMonth = ref([]);
     // const countMonthName = ref([]);
 
@@ -39,7 +40,7 @@ export default defineComponent({
       ],
     };
 
-    return { testData };
+    return { testData, userStore };
   },
 });
 </script>
@@ -108,14 +109,14 @@ export default defineComponent({
                       </tr>
                     </thead>
                     <tbody>
-                      <!-- <tr v-for="(item, index) in  usertemp" :key="index" class="m-2 test-row" @click="onClickToView(index)">
+                      <tr v-if="userStore.userTemp"  v-for="(item, index) in userStore.userTemp" :key="index" class="m-2 test-row">
                         <th scope="row">{{ item.userID }}</th>
                         <th scope="row">{{ item.petName }}</th>
                         <th scope="row">{{ item.petHP }}</th>
                         <th scope="row">{{ item.point }}</th>
                         <th scope="row"><button class="delete-btn" @click="userStore.deleteUsers(item.userID)">Delete</button>
                           <button class="edit-btn" @click="buttonClicked">Edit</button></th>
-                      </tr> -->
+                      </tr>
                     </tbody>
                   </table>
             </div>
