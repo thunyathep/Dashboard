@@ -6,29 +6,36 @@
           <div class="container">
             <h3>Post System</h3>
             <div class="row">
-        <div class="col-xl-3 col-md-6">
-          <stats-card>
-            <div slot="header" class="icon-warning">
-              <i class="nc-icon nc-chart text-warning"></i>
-            </div>
-            <div slot="content">
-              <!-- <p class="card-category">Capacity</p> -->
-              <tr>
-                <th>จำนวนประเภท</th>
-              </tr>
-              <tbody v-if="PostStore.postTemp.length > 0">
-                <td>{{ PostStore.postTemp.reduce((total, item) => total + item.category.length, 0) }}</td>
-                <td></td>
+              <div class="box">
+                <div class="box-header">
+                  <div class="box-title">
+                    <div class="icon1">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M64 64C28.7 64 0 92.7 0 128V384c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V128c0-35.3-28.7-64-64-64H64zm64 320H64V320c35.3 0 64 28.7 64 64zM64 192V128h64c0 35.3-28.7 64-64 64zM448 384c0-35.3 28.7-64 64-64v64H448zm64-192c-35.3 0-64-28.7-64-64h64v64zM288 160a96 96 0 1 1 0 192 96 96 0 1 1 0-192z"/></svg>
+                      </div>
+                    <stats-card>
+                      <div slot="header" class="icon-warning">
+                        <i class="nc-icon nc-chart text-warning"></i>
+                      </div>
+                        <div slot="content">  
+                      <tr>
+                        <th>จำนวนประเภททั้งหมด</th>
+                      </tr>
+                        <tbody>
+                          <td>{{ PostStore.postTemp.reduce((total, item) => total + item.category.length, 0) }}</td>
               </tbody>
-            </div>
-            <div slot="footer">
-              <i class="fa fa-refresh"></i>รวมทุกประเภทการโพสต์(นับซ้ำ)
             </div>
           </stats-card>
         </div>
+      </div>
         <div>
         </div>
-        <div class="col-xl-3 col-md-6">
+        </div>
+        <div class="box">
+                <div class="box-header">
+                  <div class="box-title">
+                    <div class="icon1">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M64 64C28.7 64 0 92.7 0 128V384c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V128c0-35.3-28.7-64-64-64H64zm64 320H64V320c35.3 0 64 28.7 64 64zM64 192V128h64c0 35.3-28.7 64-64 64zM448 384c0-35.3 28.7-64 64-64v64H448zm64-192c-35.3 0-64-28.7-64-64h64v64zM288 160a96 96 0 1 1 0 192 96 96 0 1 1 0-192z"/></svg>
+                      </div>
           <stats-card>
             <div slot="header" class="icon-success">
               <i class="nc-icon nc-light-3 text-success"></i>
@@ -45,12 +52,14 @@
                 <!-- </tr> -->
               </tbody>
             </div>
-            <div slot="footer">
-              <i class="fa fa-calendar-o"></i>Last day
-            </div>
           </stats-card>
-        </div>
-        <div class="col-xl-3 col-md-6"> 
+        </div></div></div>
+        <div class="box">
+                <div class="box-header">
+                  <div class="box-title">
+                    <div class="icon1">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M64 64C28.7 64 0 92.7 0 128V384c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V128c0-35.3-28.7-64-64-64H64zm64 320H64V320c35.3 0 64 28.7 64 64zM64 192V128h64c0 35.3-28.7 64-64 64zM448 384c0-35.3 28.7-64 64-64v64H448zm64-192c-35.3 0-64-28.7-64-64h64v64zM288 160a96 96 0 1 1 0 192 96 96 0 1 1 0-192z"/></svg>
+                      </div> 
           <stats-card>
             <div slot="header" class="icon-info">
               <i class="nc-icon nc-favourite-28 text-primary"></i>
@@ -66,8 +75,13 @@
               </tbody>
             </div>
           </stats-card>
-        </div>
-                <div class="col-xl-3 col-md-6"> 
+        </div></div></div>
+        <div class="box">
+                <div class="box-header">
+                  <div class="box-title">
+                    <div class="icon1">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M64 64C28.7 64 0 92.7 0 128V384c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V128c0-35.3-28.7-64-64-64H64zm64 320H64V320c35.3 0 64 28.7 64 64zM64 192V128h64c0 35.3-28.7 64-64 64zM448 384c0-35.3 28.7-64 64-64v64H448zm64-192c-35.3 0-64-28.7-64-64h64v64zM288 160a96 96 0 1 1 0 192 96 96 0 1 1 0-192z"/></svg>
+                      </div>
           <stats-card>
             <div slot="header" class="icon-info">
               <i class="nc-icon nc-favourite-28 text-primary"></i>
@@ -83,8 +97,13 @@
               </tbody>
             </div>
           </stats-card>
-        </div>
-        <div class="col-xl-3 col-md-6"> 
+        </div></div></div>
+        <div class="box">
+                <div class="box-header">
+                  <div class="box-title">
+                    <div class="icon1">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M64 64C28.7 64 0 92.7 0 128V384c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V128c0-35.3-28.7-64-64-64H64zm64 320H64V320c35.3 0 64 28.7 64 64zM64 192V128h64c0 35.3-28.7 64-64 64zM448 384c0-35.3 28.7-64 64-64v64H448zm64-192c-35.3 0-64-28.7-64-64h64v64zM288 160a96 96 0 1 1 0 192 96 96 0 1 1 0-192z"/></svg>
+                      </div>
           <stats-card>
             <div slot="header" class="icon-info">
               <i class="nc-icon nc-favourite-28 text-primary"></i>
@@ -100,8 +119,13 @@
               </tbody>
             </div>
           </stats-card>
-        </div>
-        <div class="col-xl-3 col-md-6"> 
+        </div></div></div>
+        <div class="box">
+                <div class="box-header">
+                  <div class="box-title">
+                    <div class="icon1">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M64 64C28.7 64 0 92.7 0 128V384c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V128c0-35.3-28.7-64-64-64H64zm64 320H64V320c35.3 0 64 28.7 64 64zM64 192V128h64c0 35.3-28.7 64-64 64zM448 384c0-35.3 28.7-64 64-64v64H448zm64-192c-35.3 0-64-28.7-64-64h64v64zM288 160a96 96 0 1 1 0 192 96 96 0 1 1 0-192z"/></svg>
+                      </div>
           <stats-card>
             <div slot="header" class="icon-info">
               <i class="nc-icon nc-favourite-28 text-primary"></i>
@@ -117,8 +141,13 @@
               </tbody>
             </div>
           </stats-card>
-        </div>
-        <div class="col-xl-3 col-md-6"> 
+        </div></div></div>
+        <div class="box">
+                <div class="box-header">
+                  <div class="box-title">
+                    <div class="icon1">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M64 64C28.7 64 0 92.7 0 128V384c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V128c0-35.3-28.7-64-64-64H64zm64 320H64V320c35.3 0 64 28.7 64 64zM64 192V128h64c0 35.3-28.7 64-64 64zM448 384c0-35.3 28.7-64 64-64v64H448zm64-192c-35.3 0-64-28.7-64-64h64v64zM288 160a96 96 0 1 1 0 192 96 96 0 1 1 0-192z"/></svg>
+                      </div> 
           <stats-card>
             <div slot="header" class="icon-info">
               <i class="nc-icon nc-favourite-28 text-primary"></i>
@@ -134,8 +163,13 @@
               </tbody>
             </div>
           </stats-card>
-        </div>
-        <div class="col-xl-3 col-md-6"> 
+        </div></div></div>
+        <div class="box">
+                <div class="box-header">
+                  <div class="box-title">
+                    <div class="icon1">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M64 64C28.7 64 0 92.7 0 128V384c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V128c0-35.3-28.7-64-64-64H64zm64 320H64V320c35.3 0 64 28.7 64 64zM64 192V128h64c0 35.3-28.7 64-64 64zM448 384c0-35.3 28.7-64 64-64v64H448zm64-192c-35.3 0-64-28.7-64-64h64v64zM288 160a96 96 0 1 1 0 192 96 96 0 1 1 0-192z"/></svg>
+                      </div>
           <stats-card>
             <div slot="header" class="icon-info">
               <i class="nc-icon nc-favourite-28 text-primary"></i>
@@ -151,8 +185,13 @@
               </tbody>
             </div>
           </stats-card>
-        </div>
-        <div class="col-xl-3 col-md-6"> 
+        </div></div></div>
+        <div class="box">
+                <div class="box-header">
+                  <div class="box-title">
+                    <div class="icon1">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M64 64C28.7 64 0 92.7 0 128V384c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V128c0-35.3-28.7-64-64-64H64zm64 320H64V320c35.3 0 64 28.7 64 64zM64 192V128h64c0 35.3-28.7 64-64 64zM448 384c0-35.3 28.7-64 64-64v64H448zm64-192c-35.3 0-64-28.7-64-64h64v64zM288 160a96 96 0 1 1 0 192 96 96 0 1 1 0-192z"/></svg>
+                      </div> 
           <stats-card>
             <div slot="header" class="icon-info">
               <i class="nc-icon nc-favourite-28 text-primary"></i>
@@ -173,7 +212,7 @@
           </stats-card>
         </div>
         <div>
-  </div>
+  </div></div></div>
       </div>
             <div class="tab-content" id="pills-tabContent">
               <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
@@ -453,5 +492,32 @@ onMounted(() => {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.count_type {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.box {
+  width: 200px;
+  height: 100px;
+  margin: 10px;
+  padding: 10px;
+  background-color: #f1f1f1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+.box-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2px;
+  font-weight: 200;
+}
+.icon1{
+  width: 24px;
+  height: 24px;
 }
 </style>
