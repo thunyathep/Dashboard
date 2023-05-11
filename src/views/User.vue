@@ -127,7 +127,6 @@ export default defineComponent({
 </template>
 
 <style>
-
   .card-body{
     align-content: center;
   }

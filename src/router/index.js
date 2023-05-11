@@ -6,6 +6,7 @@ import Quest from '../views/Quest.vue'
 import SignIn from '../views/SignIn.vue'
 import Setting from '../views/Setting.vue'
 import Report from '../views/Report.vue'
+import Edit from '../views/crud/edit.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -49,6 +50,12 @@ const router = createRouter({
             path: '/setting',
             name: 'setting',
             component: Setting,
+
+        },
+        {
+            path: '/src/views/crud/:postId/edit.vue',
+            name: 'edit',
+            component: Edit,
 
         }
 
